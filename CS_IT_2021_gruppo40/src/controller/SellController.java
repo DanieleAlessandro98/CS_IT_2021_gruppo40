@@ -1,15 +1,14 @@
 package controller;
 
 import model.ISellModel;
-import view.SellView;
+import view.IView;
 
 public class SellController {
 	private ISellModel model;
-	private SellView view;
+	private IView view;
 	
-	public SellController(ISellModel model, SellView view) {
+	public SellController(ISellModel model, IView view) {
 		this.model = model;
 		this.view = view;
 	}
-	
 }

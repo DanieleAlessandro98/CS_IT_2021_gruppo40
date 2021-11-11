@@ -1,13 +1,13 @@
 package controller;
 
 import model.IUserModel;
-import view.UserView;
+import view.IView;
 
 public class UserController {
 	private IUserModel model;
-	private UserView view;
+	private IView view;
 	
-	public UserController(IUserModel model, UserView view) {
+	public UserController(IUserModel model, IView view) {
 		this.model = model;
 		this.view = view;
 	}

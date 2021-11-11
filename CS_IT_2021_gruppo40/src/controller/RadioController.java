@@ -1,13 +1,13 @@
 package controller;
 
 import model.IRadioModel;
-import view.RadioView;
+import view.IView;
 
 public class RadioController {
 	private IRadioModel model;
-	private RadioView view;
+	private IView view;
 	
-	public RadioController(IRadioModel model, RadioView view) {
+	public RadioController(IRadioModel model, IView view) {
 		this.model = model;
 		this.view = view;
 	}

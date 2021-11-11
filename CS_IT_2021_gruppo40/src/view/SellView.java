@@ -2,16 +2,11 @@ package view;
 
 import java.awt.Dimension;
 
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-
 public class SellView extends AbstractView {
-	
-	private JTextField numRadio;
-	private JTextField date;
-	private JTextField price;
-	private JTextField user;
-	private JTextField radio;
+
+	private IView userView;
+	private IView sellDetailView;
+	private IView radioView;
 	
 	public SellView() {
 		super();
@@ -21,64 +16,32 @@ public class SellView extends AbstractView {
 		addComponents();
 		setPositionComponents();
 	}
-
+	
 	@Override
 	public void initProperty() {
 		this.setLayout(null);
-		this.setPreferredSize(new Dimension(300, 300));
+		this.setPreferredSize(new Dimension(900, 900));
 	}
 
 	@Override
 	public void initComponents() {
-		numRadio = new JTextField();
-		date = new JTextField();
-		price = new JTextField();
-		user = new JTextField();
-		radio = new JTextField();
-		
-		JLabel numRadioLabel;
-		JLabel dateLabel;
-		JLabel priceLabel;
-		JLabel userLabel;
-		JLabel radioLabel;
-		
-		numRadioLabel = new JLabel("Numero radio");
-		numRadioLabel.setBounds(10, 10, 100, 10);
-		this.add(numRadioLabel);
-		
-		dateLabel = new JLabel("Data");
-		dateLabel.setBounds(10, 50, 100, 10);
-		this.add(dateLabel);
-
-		priceLabel = new JLabel("Prezzo");
-		priceLabel.setBounds(150, 10, 100, 10);
-		this.add(priceLabel);
-
-		userLabel = new JLabel("Utente");
-		userLabel.setBounds(150, 50, 100, 10);
-		this.add(userLabel);
-
-		radioLabel = new JLabel("Radio");
-		radioLabel.setBounds(10, 100, 100, 10);
-		this.add(radioLabel);
+		userView = new UserView();
+		sellDetailView = new SellDetailView();
+		radioView = new RadioView();
 	}
 
 	@Override
 	public void addComponents() {
-		this.add(numRadio);
-		this.add(date);
-		this.add(price);
-		this.add(user);
-		this.add(radio);
+		this.add(userView.getView());
+		this.add(sellDetailView.getView());
+		this.add(radioView.getView());
 	}
 
 	@Override
 	public void setPositionComponents() {
-		numRadio.setBounds(10, 20, 100, 20);
-		date.setBounds(10, 60, 100, 20);
-		price.setBounds(150, 20, 100, 20);
-		user.setBounds(150, 60, 100, 20);
-		radio.setBounds(10, 110, 100, 20);
+		userView.getView().setBounds(10, 20, 400, 200);
+		sellDetailView.getView().setBounds(10, 420, 400, 200);
+		radioView.getView().setBounds(10, 220, 400, 200);
 	}
-	
+
 }
