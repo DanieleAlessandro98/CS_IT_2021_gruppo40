@@ -6,6 +6,14 @@ import utility.Window;
 
 public class MainView extends AbstractView {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1797675056818333881L;
+	/**
+	 * 
+	 */
+	
 	private CardLayout cardLayout = new CardLayout();
 	private IView sellView;
 	

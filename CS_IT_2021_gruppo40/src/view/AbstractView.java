@@ -5,6 +5,14 @@ import javax.swing.JPanel;
 
 public abstract class AbstractView extends JPanel implements IView {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7226115210622138460L;
+	/**
+	 * 
+	 */
+	
 	public AbstractView() {}
 	
 	@Override

@@ -1,11 +1,19 @@
 package view;
 
-import java.awt.Dimension;
-
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.border.TitledBorder;
+import java.awt.Color;
 
 public class RadioView extends AbstractView {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2927480887488656333L;
+	/**
+	 * 
+	 */
 	
 	private JTextField brand;
 	private JTextField type;
@@ -26,28 +34,18 @@ public class RadioView extends AbstractView {
 	@Override
 	public void initProperty() {
 		this.setLayout(null);
-		this.setPreferredSize(new Dimension(200, 200));
+		this.setBounds(10, 10, 355, 185);
+		this.setBorder(new TitledBorder(null, "Radio", TitledBorder.LEADING, TitledBorder.TOP, null, Color.BLACK));
 	}
 	
 	@Override
 	public void initComponents() {
 		brand = new JTextField();
-		brand.setPreferredSize(new Dimension(50, 20));
-
 		type = new JTextField();
-		type.setPreferredSize(new Dimension(50, 20));
-
 		size = new JTextField();
-		size.setPreferredSize(new Dimension(50, 20));
-
 		color = new JTextField();
-		color.setPreferredSize(new Dimension(50, 20));
-
 		optional = new JTextField();
-		optional.setPreferredSize(new Dimension(50, 20));
-
 		antenna = new JTextField();
-		antenna.setPreferredSize(new Dimension(50, 20));
 		
 		JLabel brandLabel;
 		JLabel typeLabel;
@@ -57,27 +55,27 @@ public class RadioView extends AbstractView {
 		JLabel antennaLabel;
 		
 		brandLabel = new JLabel("Brand");
-		brandLabel.setBounds(10, 10, 100, 10);
+		brandLabel.setBounds(12, 36, 100, 10);
 		this.add(brandLabel);
 
 		typeLabel = new JLabel("Tipo");
-		typeLabel.setBounds(10, 50, 100, 10);
+		typeLabel.setBounds(12, 76, 100, 10);
 		this.add(typeLabel);
 
 		sizeLabel = new JLabel("Dimensione");
-		sizeLabel.setBounds(150, 10, 100, 10);
+		sizeLabel.setBounds(152, 36, 100, 10);
 		this.add(sizeLabel);
 
 		colorLabel = new JLabel("Colore");
-		colorLabel.setBounds(150, 50, 100, 10);
+		colorLabel.setBounds(152, 76, 100, 10);
 		this.add(colorLabel);
 
 		optionalLabel = new JLabel("Opzional");
-		optionalLabel.setBounds(10, 100, 100, 10);
+		optionalLabel.setBounds(12, 126, 100, 10);
 		this.add(optionalLabel);
 		
 		antennaLabel = new JLabel("Antenna");
-		antennaLabel.setBounds(150, 100, 100, 10);
+		antennaLabel.setBounds(152, 126, 100, 10);
 		this.add(antennaLabel);
 	}
 	
@@ -93,12 +91,12 @@ public class RadioView extends AbstractView {
 
 	@Override
 	public void setPositionComponents() {
-		brand.setBounds(10, 20, 100, 20);
-		type.setBounds(10, 60, 100, 20);
-		size.setBounds(150, 20, 100, 20);
-		color.setBounds(150, 60, 100, 20);
-		optional.setBounds(10, 110, 100, 20);
-		antenna.setBounds(150, 110, 100, 20);
+		brand.setBounds(12, 46, 100, 20);
+		type.setBounds(12, 86, 100, 20);
+		size.setBounds(152, 46, 100, 20);
+		color.setBounds(152, 86, 100, 20);
+		optional.setBounds(12, 136, 100, 20);
+		antenna.setBounds(152, 136, 100, 20);
 	}
 	
 }

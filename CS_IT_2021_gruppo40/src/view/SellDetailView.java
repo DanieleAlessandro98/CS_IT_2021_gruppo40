@@ -1,11 +1,19 @@
 package view;
 
-import java.awt.Dimension;
-
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.border.TitledBorder;
+import java.awt.Color;
 
 public class SellDetailView extends AbstractView {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5674436431961903553L;
+	/**
+	 * 
+	 */
 	
 	private JTextField numRadio;
 	private JTextField date;
@@ -30,7 +38,8 @@ public class SellDetailView extends AbstractView {
 	@Override
 	public void initProperty() {
 		this.setLayout(null);
-		this.setPreferredSize(new Dimension(300, 300));
+		this.setBounds(10, 10, 355, 130);
+		this.setBorder(new TitledBorder(null, "Dettagli Vendita", TitledBorder.LEADING, TitledBorder.TOP, null, Color.BLACK));
 	}
 
 	@Override
@@ -47,19 +56,22 @@ public class SellDetailView extends AbstractView {
 		JLabel numRadioLabel;
 		JLabel dateLabel;
 		JLabel priceLabel;
+		
+		/*
 		JLabel userLabel;
 		JLabel radioLabel;
+		*/
 		
 		numRadioLabel = new JLabel("Numero radio");
-		numRadioLabel.setBounds(10, 10, 100, 10);
+		numRadioLabel.setBounds(12, 37, 100, 10);
 		this.add(numRadioLabel);
 		
 		dateLabel = new JLabel("Data");
-		dateLabel.setBounds(10, 50, 100, 10);
+		dateLabel.setBounds(12, 77, 100, 10);
 		this.add(dateLabel);
 
 		priceLabel = new JLabel("Prezzo");
-		priceLabel.setBounds(150, 10, 100, 10);
+		priceLabel.setBounds(152, 37, 100, 10);
 		this.add(priceLabel);
 
 		/*
@@ -87,9 +99,9 @@ public class SellDetailView extends AbstractView {
 
 	@Override
 	public void setPositionComponents() {
-		numRadio.setBounds(10, 20, 100, 20);
-		date.setBounds(10, 60, 100, 20);
-		price.setBounds(150, 20, 100, 20);
+		numRadio.setBounds(12, 47, 100, 20);
+		date.setBounds(12, 87, 100, 20);
+		price.setBounds(152, 47, 100, 20);
 		
 		/*
 		user.setBounds(150, 60, 100, 20);

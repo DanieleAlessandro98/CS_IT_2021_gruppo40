@@ -1,12 +1,21 @@
 package view;
 
-import java.awt.Dimension;
-
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import java.awt.Color;
+import javax.swing.border.TitledBorder;
+import javax.swing.UIManager;
 
 public class UserView extends AbstractView {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -974787412692568207L;
+	/**
+	 * 
+	 */
+
 	private JTextField name;
 	private JTextField surname;
 	private JTextField maxHalfYearSell;
@@ -23,34 +32,30 @@ public class UserView extends AbstractView {
 	@Override
 	public void initProperty() {
 		this.setLayout(null);
-		this.setPreferredSize(new Dimension(200, 200));
+		this.setBounds(10, 10, 355, 145);
+		this.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Dipendente", TitledBorder.LEADING, TitledBorder.TOP, null, Color.BLACK));
 	}
 
 	@Override
 	public void initComponents() {
 		name = new JTextField();
-		name.setPreferredSize(new Dimension(50, 20));
-
 		surname = new JTextField();
-		surname.setPreferredSize(new Dimension(50, 20));
-
 		maxHalfYearSell = new JTextField();	
-		maxHalfYearSell.setPreferredSize(new Dimension(50, 20));
 		
 		JLabel nameLabel;
 		JLabel surnameLabel;
 		JLabel maxHalfYearSellLabel;
 		
 		nameLabel = new JLabel("Nome");
-		nameLabel.setBounds(10, 10, 100, 10);
+		nameLabel.setBounds(12, 29, 100, 16);
 		this.add(nameLabel);
 		
 		surnameLabel = new JLabel("Cognome");
-		surnameLabel.setBounds(10, 50, 100, 10);
+		surnameLabel.setBounds(12, 86, 100, 16);
 		this.add(surnameLabel);
 
 		maxHalfYearSellLabel = new JLabel("Massimo vendite per semestre");
-		maxHalfYearSellLabel.setBounds(150, 10, 100, 10);
+		maxHalfYearSellLabel.setBounds(152, 32, 175, 10);
 		this.add(maxHalfYearSellLabel);
 	}
 
@@ -63,9 +68,9 @@ public class UserView extends AbstractView {
 
 	@Override
 	public void setPositionComponents() {
-		name.setBounds(10, 20, 100, 20);
-		surname.setBounds(10, 60, 100, 20);
-		maxHalfYearSell.setBounds(150, 20, 100, 20);
+		name.setBounds(12, 42, 100, 20);
+		surname.setBounds(12, 101, 100, 20);
+		maxHalfYearSell.setBounds(152, 42, 100, 20);
 	}
 	
 }
