@@ -1,8 +1,9 @@
 package view;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.border.TitledBorder;
 
-public class SellView extends AbstractView {
+public class SellView extends AbstractView implements ISellView {
 
 	/**
 	 * 
@@ -66,5 +67,25 @@ public class SellView extends AbstractView {
 		radioTableView.getView().setLocation(10, userView.getView().getHeight() + sellDetailView.getView().getHeight() + radioView.getView().getHeight() + (30 * (++i)));
 
 		btnInsertSell.setLocation(100, 565);
+	}
+
+	@Override
+	public JComponent getUserView() {
+		return userView.getView();
+	}
+
+	@Override
+	public JComponent getSellDetailView() {
+		return sellDetailView.getView();
+	}
+
+	@Override
+	public JComponent getRadioView() {
+		return radioView.getView();
+	}
+
+	@Override
+	public JComponent getRadioTableView() {
+		return radioTableView.getView();
 	}
 }

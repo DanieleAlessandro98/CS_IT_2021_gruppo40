@@ -12,7 +12,9 @@ public class SellDetailModel implements ISellDetailModel {
 	private IUserModel user;
 	private IRadioModel radio;
 	*/
-		
+	
+	public SellDetailModel() {}
+	
 	public SellDetailModel(int numRadio, Date date, double price, IUserModel user, IRadioModel radio) {
 		this.numRadio = numRadio;
 		this.date = date;

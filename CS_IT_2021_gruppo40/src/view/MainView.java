@@ -2,9 +2,11 @@ package view;
 
 import java.awt.CardLayout;
 
+import javax.swing.JComponent;
+
 import utility.Window;
 
-public class MainView extends AbstractView {
+public class MainView extends AbstractView implements IMainView {
 
 	/**
 	 * 
@@ -44,6 +46,11 @@ public class MainView extends AbstractView {
 	@Override
 	public void setPositionComponents() {
 		cardLayout.show(this, Window.SELL.toString());	// Finestra all'apertura del software	
+	}
+
+	@Override
+	public JComponent getSellView() {
+		return sellView.getView();
 	}
 
 }

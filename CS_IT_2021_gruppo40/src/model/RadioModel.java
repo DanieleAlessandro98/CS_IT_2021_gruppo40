@@ -10,6 +10,8 @@ public class RadioModel implements IRadioModel {
 	private String optional;
 	private String antenna;
 	
+	public RadioModel() {}
+	
 	public RadioModel(int id, Brand brand, Type type, int size, String color, String optional, String antenna) {
 		this.id = id;
 		this.brand = brand;

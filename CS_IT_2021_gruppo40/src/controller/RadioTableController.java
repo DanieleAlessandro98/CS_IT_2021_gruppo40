@@ -1,6 +1,7 @@
 package controller;
 
 import model.IRadioTableModel;
+import model.RadioTableModel;
 import view.IView;
 
 public class RadioTableController {
@@ -8,8 +9,8 @@ public class RadioTableController {
 	private IRadioTableModel model;
 	private IView view;
 	
-	public RadioTableController(IRadioTableModel model, IView view) {
-		this.model = model;
+	public RadioTableController(IView view) {
+		this.model = new RadioTableModel();
 		this.view = view;
 	}
 	

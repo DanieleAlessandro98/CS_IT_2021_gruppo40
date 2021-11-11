@@ -6,6 +6,8 @@ public class SellModel implements ISellModel {
 	private IRadioModel radio;
 	private ISellDetailModel sellDetail;
 	
+	public SellModel() {}
+	
 	public SellModel(IUserModel user, IRadioModel radio, ISellDetailModel sellDetail) {
 		this.user = user;
 		this.radio = radio;

@@ -7,6 +7,8 @@ public class UserModel implements IUserModel {
 	private String surname;
 	private int halfYearMaxSells;
 	
+	public UserModel() {}
+	
 	public UserModel(int id, String name, String surname, int halfYearMaxSells) {
 		this.id = id;
 		this.name = name;

@@ -12,6 +12,14 @@ import utility.ParentFrame;
 
 public class RadioTableView extends AbstractView {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4360934484665470165L;
+	/**
+	 * 
+	 */
+	
 	private static final String[] columnNames = {
 			"ID",
 			"Marca",
