@@ -3,19 +3,25 @@ package controller;
 import view.IMainView;
 import view.ISellView;
 
-public class MainController {
+public class MainController extends AbstractController {
 	
 	private IMainView view;
 	
-	private SellController sellController;
+	private IController sellController;
 	
 	public MainController(IMainView view) {
 		this.view = view;
+		
+		initControllers();
 	}
 	
-	public void initControllers() {
+	private void initControllers() {
 		sellController = new SellController((ISellView) view.getSellView());
-		sellController.initControllers();
+	}
+
+	@Override
+	public void bindView() {
+		sellController.bindView();
 	}
 	
 }

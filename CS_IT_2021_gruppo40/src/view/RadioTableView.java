@@ -1,6 +1,8 @@
 package view;
 
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -8,9 +10,10 @@ import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import controller.IRadioTableController;
 import utility.ParentFrame;
 
-public class RadioTableView extends AbstractView {
+public class RadioTableView extends AbstractView implements IRadioTableView {
 
 	/**
 	 * 
@@ -34,6 +37,8 @@ public class RadioTableView extends AbstractView {
 	private JTable radioTable;
 	private DefaultTableModel tableModel;
 	private JButton btnSelectRadio;
+	
+	private IRadioTableController controller;
 
 	public RadioTableView() {
 		super();
@@ -44,6 +49,8 @@ public class RadioTableView extends AbstractView {
 		setPositionComponents();
 		
 		initDialogProperty();
+		
+		initActionListener();
 	}
 	
 	@Override
@@ -95,6 +102,27 @@ public class RadioTableView extends AbstractView {
 		radioTableDialog.setLocationRelativeTo(null);
 		radioTableDialog.pack();
 		radioTableDialog.setVisible(false);
+	}
+
+	@Override
+	public void setController(IRadioTableController controller) {
+		this.controller = controller;
+	}
+
+	@Override
+	public IRadioTableController getController() {
+		return controller;
+	}
+	
+	private void initActionListener() {
+		btnSelectRadio.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				controller.selectRadioActionListener();
+			}
+			
+		});
 	}
 
 }

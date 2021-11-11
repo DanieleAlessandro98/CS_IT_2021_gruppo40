@@ -3,9 +3,12 @@ package view;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
+
+import controller.ISellDetailController;
+
 import java.awt.Color;
 
-public class SellDetailView extends AbstractView {
+public class SellDetailView extends AbstractView implements ISellDetailView {
 	
 	/**
 	 * 
@@ -25,6 +28,8 @@ public class SellDetailView extends AbstractView {
 	private JTextField user;
 	private JTextField radio;
 	*/
+	
+	private ISellDetailController controller;
 	
 	public SellDetailView() {
 		super();
@@ -107,6 +112,16 @@ public class SellDetailView extends AbstractView {
 		user.setBounds(150, 60, 100, 20);
 		radio.setBounds(10, 110, 100, 20);
 		*/
+	}
+
+	@Override
+	public void setController(ISellDetailController controller) {
+		this.controller = controller;
+	}
+
+	@Override
+	public ISellDetailController getController() {
+		return controller;
 	}
 	
 }

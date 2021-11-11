@@ -2,16 +2,21 @@ package controller;
 
 import model.ISellDetailModel;
 import model.SellDetailModel;
-import view.IView;
+import view.ISellDetailView;
 
-public class SellDetailController {
+public class SellDetailController extends AbstractController implements ISellDetailController {
 	
 	private ISellDetailModel model;
-	private IView view;
+	private ISellDetailView view;
 	
-	public SellDetailController(IView view) {
+	public SellDetailController(ISellDetailView view) {
 		this.model = new SellDetailModel();
 		this.view = view;
+	}
+
+	@Override
+	public void bindView() {
+		view.setController(this);
 	}
 	
 }

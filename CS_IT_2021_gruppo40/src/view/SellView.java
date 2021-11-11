@@ -1,7 +1,12 @@
 package view;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.border.TitledBorder;
+
+import controller.ISellController;
 
 public class SellView extends AbstractView implements ISellView {
 
@@ -19,6 +24,8 @@ public class SellView extends AbstractView implements ISellView {
 	private IView radioTableView;
 
 	private JButton btnInsertSell;
+	
+	private ISellController controller;
 
 	public SellView() {
 		super();
@@ -27,6 +34,8 @@ public class SellView extends AbstractView implements ISellView {
 		initComponents();
 		addComponents();
 		setPositionComponents();
+		
+		initActionListener();
 	}
 	
 	@Override
@@ -88,4 +97,26 @@ public class SellView extends AbstractView implements ISellView {
 	public JComponent getRadioTableView() {
 		return radioTableView.getView();
 	}
+
+	@Override
+	public void setController(ISellController controller) {
+		this.controller = controller;
+	}
+
+	@Override
+	public ISellController getController() {
+		return controller;
+	}
+	
+	private void initActionListener() {
+		btnInsertSell.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				controller.insertSellActionListener();
+			}
+			
+		});
+	}
+	
 }

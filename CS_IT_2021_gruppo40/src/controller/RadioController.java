@@ -2,15 +2,20 @@ package controller;
 
 import model.IRadioModel;
 import model.RadioModel;
-import view.IView;
+import view.IRadioView;
 
-public class RadioController {
+public class RadioController extends AbstractController implements IRadioController {
 	private IRadioModel model;
-	private IView view;
+	private IRadioView view;
 	
-	public RadioController(IView view) {
+	public RadioController(IRadioView view) {
 		this.model = new RadioModel();
 		this.view = view;
+	}
+
+	@Override
+	public void bindView() {
+		view.setController(this);
 	}
 	
 }

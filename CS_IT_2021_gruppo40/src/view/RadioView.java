@@ -3,9 +3,12 @@ package view;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
+
+import controller.IRadioController;
+
 import java.awt.Color;
 
-public class RadioView extends AbstractView {
+public class RadioView extends AbstractView implements IRadioView {
 	
 	/**
 	 * 
@@ -21,6 +24,8 @@ public class RadioView extends AbstractView {
 	private JTextField color;
 	private JTextField optional;
 	private JTextField antenna;
+	
+	private IRadioController controller;
 	
 	public RadioView() {
 		super();
@@ -97,6 +102,16 @@ public class RadioView extends AbstractView {
 		color.setBounds(152, 86, 100, 20);
 		optional.setBounds(12, 136, 100, 20);
 		antenna.setBounds(152, 136, 100, 20);
+	}
+
+	@Override
+	public void setController(IRadioController controller) {
+		this.controller = controller;
+	}
+
+	@Override
+	public IRadioController getController() {
+		return controller;
 	}
 	
 }

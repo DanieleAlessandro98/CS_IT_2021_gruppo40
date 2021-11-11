@@ -2,29 +2,49 @@ package controller;
 
 import model.ISellModel;
 import model.SellModel;
+import view.IRadioTableView;
+import view.IRadioView;
+import view.ISellDetailView;
 import view.ISellView;
-import view.IView;
+import view.IUserView;
 
-public class SellController {
+public class SellController extends AbstractController implements ISellController {
 	
 	private ISellModel model;
 	private ISellView view;
 	
-	private UserController userController;
-	private SellDetailController sellDetailController;
-	private RadioController radioController;
-	private RadioTableController radioTableController;
+	private IController userController;
+	private IController sellDetailController;
+	private IController radioController;
+	private IController radioTableController;
 	
 	public SellController(ISellView view) {
 		this.model = new SellModel();
 		this.view = view;
+		
+		initControllers();
 	}
 	
-	public void initControllers() {
-		userController = new UserController((IView) view.getUserView());
-		sellDetailController = new SellDetailController((IView) view.getSellDetailView());
-		radioController = new RadioController((IView) view.getRadioView());
-		radioTableController = new RadioTableController((IView) view.getRadioTableView());
+	private void initControllers() {
+		userController = new UserController((IUserView) view.getUserView());
+		sellDetailController = new SellDetailController((ISellDetailView) view.getSellDetailView());
+		radioController = new RadioController((IRadioView) view.getRadioView());
+		radioTableController = new RadioTableController((IRadioTableView) view.getRadioTableView());
+	}
+
+	@Override
+	public void bindView() {
+		view.setController(this);
+		
+		userController.bindView();
+		sellDetailController.bindView();
+		radioController.bindView();
+		radioTableController.bindView();
+	}
+
+	@Override
+	public void insertSellActionListener() {
+		System.out.println("qq");
 	}
 
 }

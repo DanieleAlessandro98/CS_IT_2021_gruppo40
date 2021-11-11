@@ -4,9 +4,12 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.Color;
 import javax.swing.border.TitledBorder;
+
+import controller.IUserController;
+
 import javax.swing.UIManager;
 
-public class UserView extends AbstractView {
+public class UserView extends AbstractView implements IUserView {
 	
 	/**
 	 * 
@@ -19,6 +22,8 @@ public class UserView extends AbstractView {
 	private JTextField name;
 	private JTextField surname;
 	private JTextField maxHalfYearSell;
+	
+	private IUserController controller;
 	
 	public UserView() {
 		super();
@@ -71,6 +76,16 @@ public class UserView extends AbstractView {
 		name.setBounds(12, 42, 100, 20);
 		surname.setBounds(12, 101, 100, 20);
 		maxHalfYearSell.setBounds(152, 42, 100, 20);
+	}
+
+	@Override
+	public void setController(IUserController controller) {
+		this.controller = controller;
+	}
+
+	@Override
+	public IUserController getController() {
+		return controller;
 	}
 	
 }
