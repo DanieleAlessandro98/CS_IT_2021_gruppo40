@@ -1,4 +1,5 @@
 package view;
+import javax.swing.JButton;
 import javax.swing.border.TitledBorder;
 
 public class SellView extends AbstractView {
@@ -14,7 +15,10 @@ public class SellView extends AbstractView {
 	private IView userView;
 	private IView sellDetailView;
 	private IView radioView;
-	
+	private IView radioTableView;
+
+	private JButton btnInsertSell;
+
 	public SellView() {
 		super();
 		
@@ -36,6 +40,10 @@ public class SellView extends AbstractView {
 		userView = new UserView();
 		sellDetailView = new SellDetailView();
 		radioView = new RadioView();
+		radioTableView = new RadioTableView();
+		
+		btnInsertSell = new JButton("Inserisci vendita");
+		btnInsertSell.setSize(140, 25);
 	}
 
 	@Override
@@ -43,6 +51,9 @@ public class SellView extends AbstractView {
 		this.add(userView.getView());
 		this.add(sellDetailView.getView());
 		this.add(radioView.getView());
+		this.add(radioTableView.getView());
+		
+		this.add(btnInsertSell);
 	}
 
 	@Override
@@ -52,6 +63,8 @@ public class SellView extends AbstractView {
 		userView.getView().setLocation(10, 33 * (++i));
 		sellDetailView.getView().setLocation(10, userView.getView().getHeight() + (30 * (++i)));
 		radioView.getView().setLocation(10, userView.getView().getHeight() + sellDetailView.getView().getHeight() + (30 * (++i)));
-	}
+		radioTableView.getView().setLocation(10, userView.getView().getHeight() + sellDetailView.getView().getHeight() + radioView.getView().getHeight() + (30 * (++i)));
 
+		btnInsertSell.setLocation(100, 565);
+	}
 }
