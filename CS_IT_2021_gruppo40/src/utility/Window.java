@@ -1,5 +1,6 @@
 package utility;
 
 public enum Window {
-	SELL
+	SELL,
+	LOGIN
 }

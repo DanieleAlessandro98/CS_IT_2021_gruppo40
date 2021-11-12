@@ -18,6 +18,7 @@ public class MainView extends AbstractView implements IMainView {
 	
 	private CardLayout cardLayout = new CardLayout();
 	private IView sellView;
+	private IView loginView;
 	
 	public MainView() {
 		super();
@@ -36,21 +37,28 @@ public class MainView extends AbstractView implements IMainView {
 	@Override
 	public void initComponents() {
 		sellView = new SellView();
+		loginView = new LoginView();
 	}
 
 	@Override
 	public void addComponents() {
 		this.add(sellView.getView(), Window.SELL.toString());
+		this.add(loginView.getView(), Window.LOGIN.toString());
 	}
 
 	@Override
 	public void setPositionComponents() {
-		cardLayout.show(this, Window.SELL.toString());	// Finestra all'apertura del software	
+		cardLayout.show(this, Window.LOGIN.toString());	// Finestra all'apertura del software	
 	}
 
 	@Override
 	public JComponent getSellView() {
 		return sellView.getView();
+	}
+
+	@Override
+	public JComponent getLoginView() {
+		return loginView.getView();
 	}
 
 }
