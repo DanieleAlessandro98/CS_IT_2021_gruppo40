@@ -21,7 +21,7 @@ public class LoginController extends AbstractController implements ILoginControl
 
 	@Override
 	public void loginActionListener(String username, String password) {
-		System.out.println("username = " + username + "password = " + password);
+		model.login(username, password);
 	}
 
 }

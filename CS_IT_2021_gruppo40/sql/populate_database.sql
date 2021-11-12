@@ -1,6 +1,6 @@
 USE gruppo40;
 
-INSERT INTO Users VALUES ();
+INSERT INTO Users (username, password) VALUES ("admin", MD5("12345"));
 
 INSERT INTO Users_Data (name, surname, half_year_max_sells, user_id) VALUES ("Name1", "Surname1", 10, 1);
 

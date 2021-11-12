@@ -5,6 +5,8 @@ USE gruppo40;
 
 CREATE TABLE Users (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+	username VARCHAR(20) NOT NULL,
+	password VARCHAR(50) NOT NULL,
 	
 	PRIMARY KEY(id)
 );
