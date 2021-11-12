@@ -20,8 +20,19 @@ public class RadioTableController extends AbstractController implements IRadioTa
 	}
 
 	@Override
-	public void selectRadioActionListener() {
-		System.out.println("qq2");
+	public void initRadioTable() {
+		view.initRadioTable(model.initRadioTable());
+	}
+
+	@Override
+	public void showRadioTableActionListener() {
+		view.setTableVisibility(true);
+	}
+
+	@Override
+	public void selectRadioMouseListener(int radioID) {
+		model.selectRadio(radioID);
+		view.setTableVisibility(false);
 	}
 	
 }

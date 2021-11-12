@@ -3,6 +3,9 @@ package view;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -11,6 +14,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import controller.IRadioTableController;
+import model.IRadioModel;
 import utility.ParentFrame;
 
 public class RadioTableView extends AbstractView implements IRadioTableView {
@@ -82,16 +86,6 @@ public class RadioTableView extends AbstractView implements IRadioTableView {
 
 	@Override
 	public void setPositionComponents() {
-		tableModel.addRow(new String[] {
-				"line1",
-				"line2",
-				"line3",
-				"line4",
-				"line5",
-				"line6",
-				"line7",
-		});
-		
 		btnSelectRadio.setLocation(0, 0);
 	}
 	
@@ -107,6 +101,8 @@ public class RadioTableView extends AbstractView implements IRadioTableView {
 	@Override
 	public void setController(IRadioTableController controller) {
 		this.controller = controller;
+		
+		initRadioTable();		// inizializza la tabella con i dati delle radio (presi dal controller -> model)
 	}
 
 	@Override
@@ -119,10 +115,57 @@ public class RadioTableView extends AbstractView implements IRadioTableView {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				controller.selectRadioActionListener();
+				controller.showRadioTableActionListener();
 			}
 			
 		});
+		
+		radioTable.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int row = radioTable.rowAtPoint(e.getPoint());
+				int id = Integer.parseInt(radioTable.getValueAt(row, 0).toString());
+				controller.selectRadioMouseListener(id);
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {}
+
+			@Override
+			public void mouseExited(MouseEvent e) {}
+
+			@Override
+			public void mousePressed(MouseEvent e) {}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {}
+			
+		});
+	}
+
+	@Override
+	public void initRadioTable(List<IRadioModel> radios) {
+		for (IRadioModel radio : radios) {
+			tableModel.addRow(new String[] {
+					String.valueOf(radio.getID()),
+					String.valueOf(radio.getBrand()),
+					String.valueOf(radio.getType()),
+					String.valueOf(radio.getSize()),
+					String.valueOf(radio.getColor()),
+					String.valueOf(radio.getOptional()),
+					String.valueOf(radio.getAntenna())
+			});
+		}
+	}
+
+	@Override
+	public void setTableVisibility(boolean status) {
+		radioTableDialog.setVisible(status);
+	}
+	
+	private void initRadioTable() {
+		controller.initRadioTable();
 	}
 
 }

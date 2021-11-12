@@ -1,14 +1,28 @@
 package model;
 
 import java.util.List;
-import java.util.ArrayList;
 
 public class RadioTableModel implements IRadioTableModel {
 	
-	private List<IRadioModel> radios;
+	private int selectedRadioID;
 	
 	public RadioTableModel() {
-		radios = new ArrayList<>();
+		selectedRadioID = -1;
+	}
+
+	@Override
+	public int getSelectedRadioID() {
+		return selectedRadioID;
+	}
+	
+	@Override
+	public List<IRadioModel> initRadioTable() {
+		return RadioManagment.getRadiosData();
+	}
+
+	@Override
+	public void selectRadio(int radioID) {
+		this.selectedRadioID = radioID;
 	}
 	
 }
