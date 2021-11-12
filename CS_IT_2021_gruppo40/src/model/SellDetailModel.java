@@ -15,7 +15,7 @@ public class SellDetailModel implements ISellDetailModel {
 	
 	public SellDetailModel() {}
 	
-	public SellDetailModel(int numRadio, Date date, double price, IUserModel user, IRadioModel radio) {
+	public SellDetailModel(int numRadio, Date date, double price) {
 		this.numRadio = numRadio;
 		this.date = date;
 		this.price = price;

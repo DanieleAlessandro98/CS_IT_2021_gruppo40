@@ -5,6 +5,7 @@ public class UserModel implements IUserModel {
 	private int id;
 	private String name;
 	private String surname;
+	private int dayCurrentSells;
 	private int halfYearMaxSells;
 	
 	public UserModel() {}
@@ -13,6 +14,7 @@ public class UserModel implements IUserModel {
 		this.id = id;
 		this.name = name;
 		this.surname = surname;
+		this.dayCurrentSells = 0;		// test
 		this.halfYearMaxSells = halfYearMaxSells;
 	}
 
@@ -32,8 +34,18 @@ public class UserModel implements IUserModel {
 	}
 
 	@Override
+	public int getDayCurrentSells() {
+		return dayCurrentSells;
+	}
+	
+	@Override
 	public int getHalfYearMaxSells() {
 		return halfYearMaxSells;
+	}
+
+	@Override
+	public void setDayCurrentSells(int numSells) {
+		this.dayCurrentSells = numSells;
 	}
 
 }

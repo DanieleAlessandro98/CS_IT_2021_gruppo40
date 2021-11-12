@@ -44,7 +44,7 @@ public class SellController extends AbstractController implements ISellControlle
 
 	@Override
 	public void insertSellActionListener() {
-		System.out.println("qq");
+		model.insertSell();
 	}
 
 }
