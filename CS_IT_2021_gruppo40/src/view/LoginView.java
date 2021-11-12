@@ -1,5 +1,8 @@
 package view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -9,6 +12,14 @@ import controller.ILoginController;
 
 public class LoginView extends AbstractView implements ILoginView {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1726149234228190070L;
+	/**
+	 * 
+	 */
+	
 	private JTextField usernameField;
 	private JTextField passwordField;
 	private JButton btnLogin;
@@ -22,6 +33,19 @@ public class LoginView extends AbstractView implements ILoginView {
 		initComponents();
 		addComponents();
 		setPositionComponents();
+		
+		initActionListener();
+	}
+	
+	private void initActionListener() {
+		btnLogin.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				controller.loginActionListener(usernameField.getText(), passwordField.getText());
+			}
+			
+		});
 	}
 	
 	@Override

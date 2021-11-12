@@ -5,6 +5,7 @@ import model.RadioModel;
 import view.IRadioView;
 
 public class RadioController extends AbstractController implements IRadioController {
+	
 	private IRadioModel model;
 	private IRadioView view;
 	
