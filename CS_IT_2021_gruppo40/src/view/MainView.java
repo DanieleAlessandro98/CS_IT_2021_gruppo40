@@ -61,4 +61,9 @@ public class MainView extends AbstractView implements IMainView {
 		return loginView.getView();
 	}
 
+	@Override
+	public void updateWindow(Window newWindow) {
+		cardLayout.show(this, newWindow.toString());
+	}
+
 }

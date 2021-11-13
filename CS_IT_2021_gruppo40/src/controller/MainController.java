@@ -1,11 +1,13 @@
 package controller;
 
 import observer.Observable;
+import observer.ObserverLogin;
+import utility.Window;
 import view.ILoginView;
 import view.IMainView;
 import view.ISellView;
 
-public class MainController extends AbstractController {
+public class MainController extends AbstractController implements ObserverLogin {
 	
 	private IMainView view;
 	
@@ -18,6 +20,7 @@ public class MainController extends AbstractController {
 		this.view = view;
 		
 		initControllers();
+		bindObservable();
 	}
 	
 	private void initControllers() {
@@ -29,6 +32,15 @@ public class MainController extends AbstractController {
 	public void bindView() {
 		sellController.bindView();
 		loginController.bindView();
+	}
+
+	@Override
+	public void update(Window newWindow) {
+		view.updateWindow(newWindow);
+	}
+	
+	private void bindObservable() {
+		observable.addObserverLogin(this);
 	}
 	
 }
