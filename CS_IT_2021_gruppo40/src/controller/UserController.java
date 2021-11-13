@@ -2,6 +2,7 @@ package controller;
 
 import model.IUserModel;
 import model.UserModel;
+import observer.Observable;
 import view.IUserView;
 
 public class UserController extends AbstractController implements IUserController {
@@ -9,7 +10,9 @@ public class UserController extends AbstractController implements IUserControlle
 	private IUserModel model;
 	private IUserView view;
 	
-	public UserController(IUserView view) {
+	public UserController(Observable observable, IUserView view) {
+		super(observable);
+		
 		this.model = new UserModel();
 		this.view = view;
 	}

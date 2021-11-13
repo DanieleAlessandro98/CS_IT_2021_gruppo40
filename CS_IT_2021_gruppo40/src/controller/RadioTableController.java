@@ -2,6 +2,7 @@ package controller;
 
 import model.IRadioTableModel;
 import model.RadioTableModel;
+import observer.Observable;
 import view.IRadioTableView;
 
 public class RadioTableController extends AbstractController implements IRadioTableController {
@@ -9,7 +10,9 @@ public class RadioTableController extends AbstractController implements IRadioTa
 	private IRadioTableModel model;
 	private IRadioTableView view;
 	
-	public RadioTableController(IRadioTableView view) {
+	public RadioTableController(Observable observable, IRadioTableView view) {
+		super(observable);
+		
 		this.model = new RadioTableModel();
 		this.view = view;
 	}

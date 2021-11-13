@@ -6,14 +6,17 @@ import javax.swing.JFrame;
 
 import controller.IController;
 import controller.MainController;
+import observer.Observable;
 import view.IMainView;
 import view.MainView;
 
 public class Main {
 
 	public static void main(String[] args) {
+		Observable observable = new Observable();
 		IMainView mainView = new MainView();
-		IController mainController = new MainController(mainView);
+		
+		IController mainController = new MainController(observable, mainView);
 		mainController.bindView();
 		
 		JFrame test = new JFrame("Vendita Radio");

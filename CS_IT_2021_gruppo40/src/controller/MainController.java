@@ -1,5 +1,6 @@
 package controller;
 
+import observer.Observable;
 import view.ILoginView;
 import view.IMainView;
 import view.ISellView;
@@ -11,15 +12,17 @@ public class MainController extends AbstractController {
 	private IController sellController;
 	private IController loginController;
 	
-	public MainController(IMainView view) {
+	public MainController(Observable observable, IMainView view) {
+		super(observable);
+		
 		this.view = view;
 		
 		initControllers();
 	}
 	
 	private void initControllers() {
-		sellController = new SellController((ISellView) view.getSellView());
-		loginController = new LoginController((ILoginView) view.getLoginView());
+		sellController = new SellController(observable, (ISellView) view.getSellView());
+		loginController = new LoginController(observable, (ILoginView) view.getLoginView());
 	}
 
 	@Override

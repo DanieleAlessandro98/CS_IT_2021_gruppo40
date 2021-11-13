@@ -2,6 +2,7 @@ package controller;
 
 import model.ILoginModel;
 import model.LoginModel;
+import observer.Observable;
 import view.ILoginView;
 
 public class LoginController extends AbstractController implements ILoginController {
@@ -9,7 +10,9 @@ public class LoginController extends AbstractController implements ILoginControl
 	private ILoginModel model;
 	private ILoginView view;
 	
-	public LoginController(ILoginView view) {
+	public LoginController(Observable observable, ILoginView view) {
+		super(observable);
+		
 		this.model = new LoginModel();
 		this.view = view;
 	}

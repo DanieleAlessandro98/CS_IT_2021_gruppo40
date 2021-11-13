@@ -2,6 +2,7 @@ package controller;
 
 import model.ISellModel;
 import model.SellModel;
+import observer.Observable;
 import view.IRadioTableView;
 import view.IRadioView;
 import view.ISellDetailView;
@@ -18,7 +19,9 @@ public class SellController extends AbstractController implements ISellControlle
 	private IController radioController;
 	private IController radioTableController;
 	
-	public SellController(ISellView view) {
+	public SellController(Observable observable, ISellView view) {
+		super(observable);
+		
 		this.model = new SellModel();
 		this.view = view;
 		
@@ -26,10 +29,10 @@ public class SellController extends AbstractController implements ISellControlle
 	}
 	
 	private void initControllers() {
-		userController = new UserController((IUserView) view.getUserView());
-		sellDetailController = new SellDetailController((ISellDetailView) view.getSellDetailView());
-		radioController = new RadioController((IRadioView) view.getRadioView());
-		radioTableController = new RadioTableController((IRadioTableView) view.getRadioTableView());
+		userController = new UserController(observable, (IUserView) view.getUserView());
+		sellDetailController = new SellDetailController(observable, (ISellDetailView) view.getSellDetailView());
+		radioController = new RadioController(observable, (IRadioView) view.getRadioView());
+		radioTableController = new RadioTableController(observable, (IRadioTableView) view.getRadioTableView());
 	}
 
 	@Override
