@@ -7,5 +7,6 @@ public interface IUserModel {
 	public int getDayCurrentSells();
 	public int getHalfYearMaxSells();
 	
+	public void setData(int userID);
 	public void setDayCurrentSells(int numSells);
 }

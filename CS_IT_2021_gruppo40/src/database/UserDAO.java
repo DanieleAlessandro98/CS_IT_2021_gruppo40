@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
+import model.IUserModel;
+import model.UserModel;
 import utility.DateFormat;
 
 public class UserDAO {
@@ -54,6 +56,48 @@ public class UserDAO {
 			ResultSet resultSet = statement.executeQuery();
 			while (resultSet.next()) {
 				result = resultSet.getInt("half_year_sells");
+				break;
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	public static IUserModel getData(int userID) {
+		String query = "SELECT \r\n" + 
+				"    ud.user_id,\r\n" + 
+				"    ud.name,\r\n" + 
+				"    ud.surname,\r\n" + 
+				"    ud.half_year_max_sells,\r\n" + 
+				"    COUNT(s.user_id) AS day_sells\r\n" + 
+				"FROM\r\n" + 
+				"    Users_Data ud\r\n" + 
+				"        LEFT JOIN\r\n" + 
+				"    Sells s ON ud.user_id = s.user_id\r\n" + 
+				"        AND s.date = DATE(NOW())\r\n" + 
+				"WHERE\r\n" + 
+				"    ud.user_id = ?;";
+		
+		IUserModel result = null;
+		
+		Connection connection = DBConnection.getConnection();
+
+		try {
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setInt(1, userID);
+			
+			ResultSet resultSet = statement.executeQuery();
+			while (resultSet.next()) {
+				result = new UserModel(
+						resultSet.getInt("user_id"),
+						resultSet.getString("name"),
+						resultSet.getString("surname"),
+						resultSet.getInt("day_sells"),
+						resultSet.getInt("half_year_max_sells"));
 				break;
 			}
 			

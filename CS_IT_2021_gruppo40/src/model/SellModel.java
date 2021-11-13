@@ -37,7 +37,7 @@ public class SellModel implements ISellModel {
 	public void insertSell() {
 		
 		// Inizio simulazione dati
-		IUserModel tempUser = new UserModel(1, "name", "surname", 10);
+		IUserModel tempUser = new UserModel(1, "name", "surname", 0, 10);
 		IRadioModel tempRadio = new RadioModel(1, Brand.BRAND1, Type.TYPE1, 1, "Black", "optional", "antenna");
 		ISellDetailModel tempSellDetail = new SellDetailModel(100, new Date(), 20.10);
 		// Fine simulazione dati

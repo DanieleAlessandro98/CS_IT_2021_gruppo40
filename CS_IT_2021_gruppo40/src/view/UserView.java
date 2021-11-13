@@ -6,6 +6,7 @@ import java.awt.Color;
 import javax.swing.border.TitledBorder;
 
 import controller.IUserController;
+import model.IUserModel;
 
 import javax.swing.UIManager;
 
@@ -86,6 +87,13 @@ public class UserView extends AbstractView implements IUserView {
 	@Override
 	public IUserController getController() {
 		return controller;
+	}
+
+	@Override
+	public void updateUser(IUserModel user) {
+		name.setText(user.getName());
+		surname.setText(user.getSurname());
+		maxHalfYearSell.setText(String.valueOf(user.getHalfYearMaxSells()));
 	}
 	
 }

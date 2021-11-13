@@ -3,9 +3,10 @@ package controller;
 import model.IUserModel;
 import model.UserModel;
 import observer.Observable;
+import observer.ObserverLogin;
 import view.IUserView;
 
-public class UserController extends AbstractController implements IUserController {
+public class UserController extends AbstractController implements IUserController, ObserverLogin {
 	
 	private IUserModel model;
 	private IUserView view;
@@ -24,8 +25,13 @@ public class UserController extends AbstractController implements IUserControlle
 
 	@Override
 	public void bindObserver() {
-		// TODO Auto-generated method stub
-		
+		observable.addObserverLogin(this);
+	}
+
+	@Override
+	public void update(int userID) {
+		model.setData(userID);
+		view.updateUser(model);
 	}
 
 }

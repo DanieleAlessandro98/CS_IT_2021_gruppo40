@@ -12,4 +12,8 @@ public class UserManagment {
 		return UserDAO.getHalfYearCurrentSells(userID);
 	}
 	
+	public static IUserModel getData(int userID) {
+		return UserDAO.getData(userID);
+	}
+	
 }

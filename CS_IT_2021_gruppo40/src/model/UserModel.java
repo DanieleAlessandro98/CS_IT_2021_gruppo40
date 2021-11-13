@@ -10,11 +10,11 @@ public class UserModel implements IUserModel {
 	
 	public UserModel() {}
 	
-	public UserModel(int id, String name, String surname, int halfYearMaxSells) {
+	public UserModel(int id, String name, String surname, int dayCurrentSells, int halfYearMaxSells) {
 		this.id = id;
 		this.name = name;
 		this.surname = surname;
-		this.dayCurrentSells = 0;		// test
+		this.dayCurrentSells = dayCurrentSells;
 		this.halfYearMaxSells = halfYearMaxSells;
 	}
 
@@ -46,6 +46,17 @@ public class UserModel implements IUserModel {
 	@Override
 	public void setDayCurrentSells(int numSells) {
 		this.dayCurrentSells = numSells;
+	}
+
+	@Override
+	public void setData(int userID) {
+		IUserModel tempUser = UserManagment.getData(userID);
+		
+		this.id = tempUser.getID();
+		this.name = tempUser.getName();
+		this.surname = tempUser.getSurname();
+		this.dayCurrentSells = tempUser.getDayCurrentSells();
+		this.halfYearMaxSells = tempUser.getHalfYearMaxSells();
 	}
 
 }
