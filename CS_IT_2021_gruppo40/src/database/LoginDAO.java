@@ -7,10 +7,10 @@ import java.sql.SQLException;
 
 public class LoginDAO {
 
-	public static boolean login(String username, String password) {
-		String query = "SELECT username, password FROM Users WHERE username = ? AND password = ?;";
+	public static int login(String username, String password) {
+		String query = "SELECT id FROM Users WHERE username = ? AND password = ?;";
 		
-		boolean result = false;
+		int result = -1;
 		
 		Connection connection = DBConnection.getConnection();
 		
@@ -21,7 +21,7 @@ public class LoginDAO {
 			
 			ResultSet resultSet = statement.executeQuery();
 			while (resultSet.next()) {
-				result = true;
+				result = resultSet.getInt("id");
 				break;
 			}
 			

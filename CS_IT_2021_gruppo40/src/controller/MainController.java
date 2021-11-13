@@ -35,8 +35,8 @@ public class MainController extends AbstractController implements ObserverLogin 
 	}
 
 	@Override
-	public void update(Window newWindow) {
-		view.updateWindow(newWindow);
+	public void update(int userID) {
+		view.updateWindow(Window.SELL);
 	}
 	
 	private void bindObservable() {

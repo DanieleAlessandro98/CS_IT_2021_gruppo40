@@ -11,16 +11,20 @@ public class LoginModel implements ILoginModel, ObservableLogin {
 	
 	private String username;
 	private String password;
+	private int userID;
 	
 	private List<ObserverLogin> observers;
 	
 	public LoginModel() {
+		userID = -1;
+		
 		observers = new ArrayList<>();
 	}
 	
 	public LoginModel(String username, String password) {
 		this.username = username;
 		this.password = password;
+		userID = -1;
 		
 		observers = new ArrayList<>();
 	}
@@ -34,9 +38,9 @@ public class LoginModel implements ILoginModel, ObservableLogin {
 	}
 	
 	private void processLogin() {
-		boolean loginSuccessful = LoginManagment.login(username, password);
+		userID = LoginManagment.login(username, password);
 		
-		if (!loginSuccessful)
+		if (userID == -1)
 			System.out.println("Error1 login ....");		// Probabilmente gestito in seguito con exception
 		else
 			notifyObservers();
@@ -55,7 +59,7 @@ public class LoginModel implements ILoginModel, ObservableLogin {
 	@Override
 	public void notifyObservers() {
 		for (ObserverLogin ob : observers)
-			ob.update(Window.SELL);
+			ob.update(userID);
 	}
 	
 }
