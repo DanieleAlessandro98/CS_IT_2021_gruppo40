@@ -20,7 +20,6 @@ public class MainController extends AbstractController implements ObserverLogin 
 		this.view = view;
 		
 		initControllers();
-		bindObservable();
 	}
 	
 	private void initControllers() {
@@ -35,12 +34,16 @@ public class MainController extends AbstractController implements ObserverLogin 
 	}
 
 	@Override
-	public void update(int userID) {
-		view.updateWindow(Window.SELL);
+	public void bindObserver() {
+		observable.addObserverLogin(this);
+		
+		sellController.bindObserver();
+		loginController.bindObserver();
 	}
 	
-	private void bindObservable() {
-		observable.addObserverLogin(this);
+	@Override
+	public void update(int userID) {
+		view.updateWindow(Window.SELL);
 	}
 	
 }

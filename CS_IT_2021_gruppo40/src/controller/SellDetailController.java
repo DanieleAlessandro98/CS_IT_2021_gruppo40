@@ -21,5 +21,11 @@ public class SellDetailController extends AbstractController implements ISellDet
 	public void bindView() {
 		view.setController(this);
 	}
+
+	@Override
+	public void bindObserver() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

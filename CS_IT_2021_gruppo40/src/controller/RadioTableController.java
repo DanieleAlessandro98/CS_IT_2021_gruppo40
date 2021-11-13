@@ -23,6 +23,12 @@ public class RadioTableController extends AbstractController implements IRadioTa
 	}
 
 	@Override
+	public void bindObserver() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
 	public void initRadioTable() {
 		view.initRadioTable(model.initRadioTable());
 	}

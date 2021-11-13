@@ -20,7 +20,13 @@ public class LoginController extends AbstractController implements ILoginControl
 	public void bindView() {
 		view.setController(this);
 	}
-
+	
+	@Override
+	public void bindObserver() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	@Override
 	public void loginActionListener(String username, String password) {
 		model.login(username, password);

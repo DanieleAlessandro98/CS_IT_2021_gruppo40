@@ -46,6 +46,14 @@ public class SellController extends AbstractController implements ISellControlle
 	}
 
 	@Override
+	public void bindObserver() {
+		userController.bindObserver();
+		sellDetailController.bindObserver();
+		radioController.bindObserver();
+		radioTableController.bindObserver();
+	}
+	
+	@Override
 	public void insertSellActionListener() {
 		model.insertSell();
 	}

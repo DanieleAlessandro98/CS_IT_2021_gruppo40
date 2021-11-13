@@ -22,4 +22,10 @@ public class UserController extends AbstractController implements IUserControlle
 		view.setController(this);
 	}
 
+	@Override
+	public void bindObserver() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

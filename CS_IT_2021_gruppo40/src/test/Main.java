@@ -18,6 +18,7 @@ public class Main {
 		
 		IController mainController = new MainController(observable, mainView);
 		mainController.bindView();
+		mainController.bindObserver();
 		
 		JFrame test = new JFrame("Vendita Radio");
 		test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

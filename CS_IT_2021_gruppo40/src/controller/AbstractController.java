@@ -12,4 +12,7 @@ public abstract class AbstractController implements IController {
 	
 	@Override
 	abstract public void bindView();
+	
+	@Override
+	abstract public void bindObserver();
 }
