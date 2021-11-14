@@ -1,6 +1,12 @@
 package model;
 
-public class RadioModel implements IRadioModel {
+import java.util.ArrayList;
+import java.util.List;
+
+import observer.ObservableRadio;
+import observer.ObserverRadio;
+
+public class RadioModel implements IRadioModel, ObservableRadio {
 
 	private int id;
 	private Brand brand;
@@ -10,7 +16,11 @@ public class RadioModel implements IRadioModel {
 	private String optional;
 	private String antenna;
 	
-	public RadioModel() {}
+	private List<ObserverRadio> observers;
+	
+	public RadioModel() {
+		observers = new ArrayList<>();
+	}
 	
 	public RadioModel(int id, Brand brand, Type type, int size, String color, String optional, String antenna) {
 		this.id = id;
@@ -20,6 +30,8 @@ public class RadioModel implements IRadioModel {
 		this.color = color;
 		this.optional = optional;
 		this.antenna = antenna;
+		
+		observers = new ArrayList<>();
 	}
 
 	@Override
@@ -68,6 +80,25 @@ public class RadioModel implements IRadioModel {
 		this.color = tempRadio.getColor();
 		this.optional = tempRadio.getOptional();
 		this.antenna = tempRadio.getAntenna();
+		
+		notifyObservers();
+	}
+
+	@Override
+	public void addObserver(ObserverRadio observer) {
+		observers.add(observer);
+	}
+
+	@Override
+	public void removeObserver(ObserverRadio observer) {
+		observers.remove(observer);
+	}
+
+	@Override
+	public void notifyObservers() {
+		for (ObserverRadio ob : observers) {
+			ob.updateRadio(this);
+		}
 	}
 
 }

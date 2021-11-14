@@ -8,4 +8,5 @@ public interface ISellModel {
 	public void insertSell();
 	
 	public void setUser(Object user);
+	public void setRadio(Object radio);
 }

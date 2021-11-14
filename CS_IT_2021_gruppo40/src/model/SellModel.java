@@ -55,4 +55,9 @@ public class SellModel implements ISellModel {
 		this.user = (IUserModel) user;
 	}
 
+	@Override
+	public void setRadio(Object radio) {
+		this.radio = (IRadioModel) radio;
+	}
+
 }
