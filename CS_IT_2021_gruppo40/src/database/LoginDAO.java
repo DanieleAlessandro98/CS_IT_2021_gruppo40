@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import utility.Hash;
+
 public class LoginDAO {
 
 	public static int login(String username, String password) {
@@ -17,7 +19,7 @@ public class LoginDAO {
 		try {
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setString(1, username);
-			statement.setString(2, password);
+			statement.setString(2, Hash.getMD5String(password));
 			
 			ResultSet resultSet = statement.executeQuery();
 			while (resultSet.next()) {
