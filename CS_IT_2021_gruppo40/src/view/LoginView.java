@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
@@ -21,7 +22,7 @@ public class LoginView extends AbstractView implements ILoginView {
 	 */
 	
 	private JTextField usernameField;
-	private JTextField passwordField;
+	private JPasswordField passwordField;
 	private JButton btnLogin;
 	
 	private ILoginController controller;
@@ -42,7 +43,7 @@ public class LoginView extends AbstractView implements ILoginView {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				controller.loginActionListener(usernameField.getText(), passwordField.getText());
+				controller.loginActionListener(usernameField.getText(), String.copyValueOf(passwordField.getPassword()));
 			}
 			
 		});
@@ -58,7 +59,7 @@ public class LoginView extends AbstractView implements ILoginView {
 	@Override
 	public void initComponents() {
 		usernameField = new JTextField();
-		passwordField = new JTextField();
+		passwordField = new JPasswordField();
 		btnLogin = new JButton("Login");
 		
 		JLabel usernameLabel;
