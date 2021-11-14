@@ -1,19 +1,28 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-public class SellDetailModel implements ISellDetailModel {
+import observer.ObservableSellDetail;
+import observer.ObserverSellDetail;
+
+public class SellDetailModel implements ISellDetailModel, ObservableSellDetail {
 
 	private int numRadio;
 	private Date date;
 	private double price;
+	
+	private List<ObserverSellDetail> observers;
 	
 	/*
 	private IUserModel user;
 	private IRadioModel radio;
 	*/
 	
-	public SellDetailModel() {}
+	public SellDetailModel() {
+		observers = new ArrayList<>();
+	}
 	
 	public SellDetailModel(int numRadio, Date date, double price) {
 		this.numRadio = numRadio;
@@ -24,6 +33,8 @@ public class SellDetailModel implements ISellDetailModel {
 		this.user = user;
 		this.radio = radio;
 		*/
+		
+		observers = new ArrayList<>();
 	}
 
 	@Override
@@ -55,20 +66,37 @@ public class SellDetailModel implements ISellDetailModel {
 	
 	@Override
 	public void setNumRadio(int numRadio) {
-		System.out.println("numRadio = " + numRadio);
 		this.numRadio = numRadio;
+		notifyObservers();
 	}
 
 	@Override
 	public void setDate(Date date) {
-		System.out.println("date = " + date);
 		this.date = date;
+		notifyObservers();
 	}
 
 	@Override
 	public void setPrice(double price) {
-		System.out.println("price = " + price);
 		this.price = price;
+		notifyObservers();
+	}
+
+	@Override
+	public void addObserver(ObserverSellDetail observer) {
+		observers.add(observer);
+	}
+
+	@Override
+	public void removeObserver(ObserverSellDetail observer) {
+		observers.remove(observer);
+	}
+
+	@Override
+	public void notifyObservers() {
+		for (ObserverSellDetail ob : observers) {
+			ob.updateSellDetail(this);
+		}
 	}
 
 }

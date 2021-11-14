@@ -4,6 +4,7 @@ import model.ISellModel;
 import model.SellModel;
 import observer.Observable;
 import observer.ObserverRadio;
+import observer.ObserverSellDetail;
 import observer.ObserverUser;
 import view.IRadioTableView;
 import view.IRadioView;
@@ -11,7 +12,7 @@ import view.ISellDetailView;
 import view.ISellView;
 import view.IUserView;
 
-public class SellController extends AbstractController implements ISellController, ObserverUser, ObserverRadio {
+public class SellController extends AbstractController implements ISellController, ObserverUser, ObserverRadio, ObserverSellDetail {
 	
 	private ISellModel model;
 	private ISellView view;
@@ -51,6 +52,7 @@ public class SellController extends AbstractController implements ISellControlle
 	public void bindObserver() {
 		observable.addObserverUser(this);
 		observable.addObserverRadio(this);
+		observable.addObserverSellDetail(this);
 		
 		userController.bindObserver();
 		sellDetailController.bindObserver();
@@ -71,6 +73,11 @@ public class SellController extends AbstractController implements ISellControlle
 	@Override
 	public void updateRadio(Object radio) {
 		model.setRadio(radio);
+	}
+
+	@Override
+	public void updateSellDetail(Object sellDetail) {
+		model.setSellDetail(sellDetail);
 	}
 
 }

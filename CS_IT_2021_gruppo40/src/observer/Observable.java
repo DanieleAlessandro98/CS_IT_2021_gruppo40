@@ -3,6 +3,7 @@ package observer;
 import model.LoginModel;
 import model.RadioModel;
 import model.RadioTableModel;
+import model.SellDetailModel;
 import model.UserModel;
 
 public class Observable {
@@ -11,12 +12,14 @@ public class Observable {
 	private ObservableSelectRadio observableSelectRadio;
 	private ObservableUser observableUser;
 	private ObservableRadio observableRadio;
+	private ObservableSellDetail observableSellDetail;
 	
 	public Observable() {
 		observableLogin = new LoginModel();
 		observableSelectRadio = new RadioTableModel();
 		observableUser = new UserModel();
 		observableRadio = new RadioModel();
+		observableSellDetail = new SellDetailModel();
 	}
 	
 	public void addObserverLogin(ObserverLogin observer) {
@@ -35,6 +38,10 @@ public class Observable {
 		observableRadio.addObserver(observer);
 	}
 	
+	public void addObserverSellDetail(ObserverSellDetail observer) {
+		observableSellDetail.addObserver(observer);
+	}
+	
 	public ObservableLogin getObservableLogin() {
 		return observableLogin;
 	}
@@ -49,6 +56,10 @@ public class Observable {
 	
 	public ObservableRadio getObservableRadio() {
 		return observableRadio;
+	}
+	
+	public ObservableSellDetail getObservableSellDetail() {
+		return observableSellDetail;
 	}
 	
 }

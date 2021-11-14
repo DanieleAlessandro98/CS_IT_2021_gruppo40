@@ -9,4 +9,5 @@ public interface ISellModel {
 	
 	public void setUser(Object user);
 	public void setRadio(Object radio);
+	public void setSellDetail(Object sellDetail);
 }

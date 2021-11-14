@@ -1,7 +1,5 @@
 package model;
 
-import java.util.Date;
-
 public class SellModel implements ISellModel {
 
 	private IUserModel user;
@@ -35,13 +33,6 @@ public class SellModel implements ISellModel {
 
 	@Override
 	public void insertSell() {
-		
-		// Inizio simulazione dati
-		ISellDetailModel tempSellDetail = new SellDetailModel(100, new Date(), 20.10);
-		// Fine simulazione dati
-		
-		this.sellDetail = tempSellDetail;
-		
 		if (user.getHalfYearMaxSells() <= UserManagment.getHalfYearCurrentSells(user.getID()))
 			System.out.println("Error1 radio vendibili in un semestre....");				// Probabilmente gestito in seguito con exception
 		else if (user.getDayCurrentSells() >= MAX_DAY_SELLS)
@@ -58,6 +49,11 @@ public class SellModel implements ISellModel {
 	@Override
 	public void setRadio(Object radio) {
 		this.radio = (IRadioModel) radio;
+	}
+
+	@Override
+	public void setSellDetail(Object sellDetail) {
+		this.sellDetail = (ISellDetailModel) sellDetail;
 	}
 
 }

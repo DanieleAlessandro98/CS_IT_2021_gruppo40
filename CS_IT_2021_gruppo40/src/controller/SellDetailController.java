@@ -3,7 +3,6 @@ package controller;
 import java.util.Date;
 
 import model.ISellDetailModel;
-import model.SellDetailModel;
 import observer.Observable;
 import view.ISellDetailView;
 
@@ -15,7 +14,7 @@ public class SellDetailController extends AbstractController implements ISellDet
 	public SellDetailController(Observable observable, ISellDetailView view) {
 		super(observable);
 		
-		this.model = new SellDetailModel();
+		this.model = (ISellDetailModel) observable.getObservableSellDetail();
 		this.view = view;
 	}
 
