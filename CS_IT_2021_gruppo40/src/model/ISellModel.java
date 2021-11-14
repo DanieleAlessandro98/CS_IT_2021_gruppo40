@@ -6,4 +6,6 @@ public interface ISellModel {
 	public ISellDetailModel getSellDetail();
 	
 	public void insertSell();
+	
+	public void setUser(Object user);
 }

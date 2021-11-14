@@ -1,7 +1,6 @@
 package controller;
 
 import model.IUserModel;
-import model.UserModel;
 import observer.Observable;
 import observer.ObserverLogin;
 import view.IUserView;
@@ -14,7 +13,7 @@ public class UserController extends AbstractController implements IUserControlle
 	public UserController(Observable observable, IUserView view) {
 		super(observable);
 		
-		this.model = new UserModel();
+		this.model = (IUserModel) observable.getObservableUser();
 		this.view = view;
 	}
 

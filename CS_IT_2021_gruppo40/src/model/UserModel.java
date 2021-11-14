@@ -1,6 +1,12 @@
 package model;
 
-public class UserModel implements IUserModel {
+import java.util.ArrayList;
+import java.util.List;
+
+import observer.ObservableUser;
+import observer.ObserverUser;
+
+public class UserModel implements IUserModel, ObservableUser {
 
 	private int id;
 	private String name;
@@ -8,7 +14,11 @@ public class UserModel implements IUserModel {
 	private int dayCurrentSells;
 	private int halfYearMaxSells;
 	
-	public UserModel() {}
+	private List<ObserverUser> observers;
+	
+	public UserModel() {
+		observers = new ArrayList<>();
+	}
 	
 	public UserModel(int id, String name, String surname, int dayCurrentSells, int halfYearMaxSells) {
 		this.id = id;
@@ -16,6 +26,8 @@ public class UserModel implements IUserModel {
 		this.surname = surname;
 		this.dayCurrentSells = dayCurrentSells;
 		this.halfYearMaxSells = halfYearMaxSells;
+		
+		observers = new ArrayList<>();
 	}
 
 	@Override
@@ -57,6 +69,25 @@ public class UserModel implements IUserModel {
 		this.surname = tempUser.getSurname();
 		this.dayCurrentSells = tempUser.getDayCurrentSells();
 		this.halfYearMaxSells = tempUser.getHalfYearMaxSells();
+		
+		notifyObservers();
+	}
+
+	@Override
+	public void addObserver(ObserverUser observer) {
+		observers.add(observer);
+	}
+
+	@Override
+	public void removeObserver(ObserverUser observer) {
+		observers.remove(observer);
+	}
+
+	@Override
+	public void notifyObservers() {
+		for (ObserverUser ob : observers) {
+			ob.updateUser(this);
+		}
 	}
 
 }
