@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.Date;
+
 import model.ISellDetailModel;
 import model.SellDetailModel;
 import observer.Observable;
@@ -26,6 +28,21 @@ public class SellDetailController extends AbstractController implements ISellDet
 	public void bindObserver() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void setNumRadioActionListener(int numRadio) {
+		model.setNumRadio(numRadio);
+	}
+
+	@Override
+	public void setDateActionListener(Date date) {
+		model.setDate(date);
+	}
+
+	@Override
+	public void setPriceActionListener(double price) {
+		model.setPrice(price);
 	}
 	
 }

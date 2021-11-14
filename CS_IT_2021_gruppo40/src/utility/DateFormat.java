@@ -1,5 +1,7 @@
 package utility;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -32,6 +34,17 @@ public class DateFormat {
 		}
 		
 		return halfYearRange;
+	}
+	
+	public static Date valueOf(String dateString) {
+		Date date = null;
+		try {
+			date = new SimpleDateFormat("dd/mm/yyyy HH:mm").parse(dateString);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		return date;
 	}
 	
 }

@@ -1,12 +1,16 @@
 package view;
 
+import javax.swing.InputVerifier;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
 import controller.ISellDetailController;
+import utility.DateFormat;
 
 import java.awt.Color;
+import java.util.Date;
 
 public class SellDetailView extends AbstractView implements ISellDetailView {
 	
@@ -38,6 +42,8 @@ public class SellDetailView extends AbstractView implements ISellDetailView {
 		initComponents();
 		addComponents();
 		setPositionComponents();
+		
+		initActionListener();
 	}
 
 	@Override
@@ -122,6 +128,48 @@ public class SellDetailView extends AbstractView implements ISellDetailView {
 	@Override
 	public ISellDetailController getController() {
 		return controller;
+	}
+	
+	private void initActionListener() {
+		numRadio.setInputVerifier(new InputVerifier() {
+
+			@Override
+			public boolean verify(JComponent arg0) {				
+				String stringValue = numRadio.getText();
+				int value = Integer.valueOf(stringValue);
+				
+				controller.setNumRadioActionListener(value);
+				return true;
+			}
+			
+		});
+		
+		date.setInputVerifier(new InputVerifier() {
+
+			@Override
+			public boolean verify(JComponent arg0) {				
+				String stringValue = date.getText();
+				Date value = DateFormat.valueOf(stringValue);
+				
+				controller.setDateActionListener(value);
+				return true;
+			}
+			
+		});
+		
+		price.setInputVerifier(new InputVerifier() {
+
+			@Override
+			public boolean verify(JComponent input) {
+				String stringValue = price.getText();
+				double value = Double.valueOf(stringValue);
+				
+				controller.setPriceActionListener(value);
+				
+				return true;
+			}
+			
+		});
 	}
 	
 }

@@ -52,5 +52,23 @@ public class SellDetailModel implements ISellDetailModel {
 		return radio;
 	}
 	*/
+	
+	@Override
+	public void setNumRadio(int numRadio) {
+		System.out.println("numRadio = " + numRadio);
+		this.numRadio = numRadio;
+	}
+
+	@Override
+	public void setDate(Date date) {
+		System.out.println("date = " + date);
+		this.date = date;
+	}
+
+	@Override
+	public void setPrice(double price) {
+		System.out.println("price = " + price);
+		this.price = price;
+	}
 
 }

@@ -11,4 +11,8 @@ public interface ISellDetailModel {
 	public IUserModel getUser();
 	public IRadioModel getRadio();
 	*/
+	
+	public void setNumRadio(int numRadio);
+	public void setDate(Date date);
+	public void setPrice(double price);
 }
