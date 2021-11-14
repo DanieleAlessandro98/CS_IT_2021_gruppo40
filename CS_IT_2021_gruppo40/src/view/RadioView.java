@@ -5,6 +5,7 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
 import controller.IRadioController;
+import model.IRadioModel;
 
 import java.awt.Color;
 
@@ -112,6 +113,16 @@ public class RadioView extends AbstractView implements IRadioView {
 	@Override
 	public IRadioController getController() {
 		return controller;
+	}
+
+	@Override
+	public void updateRadio(IRadioModel radio) {
+		brand.setText(String.valueOf(radio.getBrand()));
+		type.setText(String.valueOf(radio.getType()));
+		size.setText(String.valueOf(radio.getSize()));
+		color.setText(radio.getColor());
+		optional.setText(radio.getOptional());
+		antenna.setText(radio.getAntenna());
 	}
 	
 }

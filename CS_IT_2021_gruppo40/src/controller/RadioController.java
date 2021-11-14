@@ -3,9 +3,10 @@ package controller;
 import model.IRadioModel;
 import model.RadioModel;
 import observer.Observable;
+import observer.ObserverSelectRadio;
 import view.IRadioView;
 
-public class RadioController extends AbstractController implements IRadioController {
+public class RadioController extends AbstractController implements IRadioController, ObserverSelectRadio {
 	
 	private IRadioModel model;
 	private IRadioView view;
@@ -24,8 +25,13 @@ public class RadioController extends AbstractController implements IRadioControl
 
 	@Override
 	public void bindObserver() {
-		// TODO Auto-generated method stub
-		
+		observable.addObserverSelectRadio(this);
+	}
+
+	@Override
+	public void update(int radioID) {
+		model.setData(radioID);
+		view.updateRadio(model);
 	}
 	
 }

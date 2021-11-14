@@ -46,4 +46,49 @@ public class RadioDAO {
 		return result;
 	}
 	
+	public static IRadioModel getData(int radioID) {
+		String query = "SELECT \r\n" + 
+				"    r.id,\r\n" + 
+				"    r.size,\r\n" + 
+				"    r.color,\r\n" + 
+				"    r.optional,\r\n" + 
+				"    r.antenna,\r\n" + 
+				"    b.name AS brand_name,\r\n" + 
+				"    t.name AS type_name\r\n" + 
+				"FROM\r\n" + 
+				"    Radios r\r\n" + 
+				"        JOIN\r\n" + 
+				"    Brands b ON r.brand = b.id\r\n" + 
+				"        JOIN\r\n" + 
+				"    Types t ON r.type = t.id\r\n" + 
+				"WHERE\r\n" + 
+				"    r.id = ?;";
+		
+		IRadioModel result = null;
+		
+		Connection connection = DBConnection.getConnection();
+		
+		try {
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setInt(1, radioID);
+			
+			ResultSet resultSet = statement.executeQuery();
+			while (resultSet.next()) {
+				result = new RadioModel(
+						resultSet.getInt("id"),
+						Brand.valueOf(resultSet.getString("brand_name")),
+						Type.valueOf(resultSet.getString("type_name")),
+						resultSet.getInt("size"),
+						resultSet.getString("color"),
+						resultSet.getString("optional"),
+						resultSet.getString("antenna"));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
 }

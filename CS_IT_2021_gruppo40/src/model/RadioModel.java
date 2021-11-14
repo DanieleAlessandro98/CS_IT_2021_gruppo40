@@ -57,4 +57,17 @@ public class RadioModel implements IRadioModel {
 		return antenna;
 	}
 
+	@Override
+	public void setData(int radioID) {
+		IRadioModel tempRadio = RadioManagment.getData(radioID);
+		
+		this.id = tempRadio.getID();
+		this.brand = tempRadio.getBrand();
+		this.type = tempRadio.getType();
+		this.size = tempRadio.getSize();
+		this.color = tempRadio.getColor();
+		this.optional = tempRadio.getOptional();
+		this.antenna = tempRadio.getAntenna();
+	}
+
 }

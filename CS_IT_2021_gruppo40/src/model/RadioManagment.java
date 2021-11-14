@@ -10,4 +10,8 @@ public class RadioManagment {
 		return RadioDAO.getRadiosData();
 	}
 	
+	public static IRadioModel getData(int radioID) {
+		return RadioDAO.getData(radioID);
+	}
+	
 }

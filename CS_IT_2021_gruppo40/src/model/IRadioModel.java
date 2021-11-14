@@ -8,4 +8,6 @@ public interface IRadioModel {
 	public String getColor();
 	public String getOptional();
 	public String getAntenna();
+	
+	public void setData(int radioID);
 }

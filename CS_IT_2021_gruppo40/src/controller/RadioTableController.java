@@ -1,7 +1,6 @@
 package controller;
 
 import model.IRadioTableModel;
-import model.RadioTableModel;
 import observer.Observable;
 import view.IRadioTableView;
 
@@ -13,7 +12,7 @@ public class RadioTableController extends AbstractController implements IRadioTa
 	public RadioTableController(Observable observable, IRadioTableView view) {
 		super(observable);
 		
-		this.model = new RadioTableModel();
+		this.model = (IRadioTableModel) observable.getObservableSelectRadio();
 		this.view = view;
 	}
 
