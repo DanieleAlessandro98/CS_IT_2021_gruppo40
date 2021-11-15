@@ -2,7 +2,7 @@ package model;
 
 import exception.SellException;
 
-public interface ISellModel {
+public interface ISellModel extends IModel {
 	public IUserModel getUser();
 	public IRadioModel getRadio();
 	public ISellDetailModel getSellDetail();

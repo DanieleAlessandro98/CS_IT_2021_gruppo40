@@ -36,12 +36,12 @@ public class DateFormat {
 		return halfYearRange;
 	}
 	
-	public static Date valueOf(String dateString) {
+	public static Date valueOf(String dateString) throws Exception {
 		Date date = null;
 		try {
 			date = new SimpleDateFormat("dd/mm/yyyy HH:mm").parse(dateString);
 		} catch (ParseException e) {
-			e.printStackTrace();
+			throw new Exception();
 		}
 		
 		return date;

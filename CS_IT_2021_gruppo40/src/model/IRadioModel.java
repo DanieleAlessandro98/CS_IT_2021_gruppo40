@@ -1,6 +1,6 @@
 package model;
 
-public interface IRadioModel {
+public interface IRadioModel extends IModel {
 	public int getID();
 	public Brand getBrand();
 	public Type getType();

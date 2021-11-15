@@ -3,6 +3,7 @@ package view;
 import javax.swing.InputVerifier;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
@@ -136,9 +137,16 @@ public class SellDetailView extends AbstractView implements ISellDetailView {
 			@Override
 			public boolean verify(JComponent arg0) {				
 				String stringValue = numRadio.getText();
-				int value = Integer.valueOf(stringValue);
+				int value = -1;
 				
-				controller.setNumRadioActionListener(value);
+				try {
+					value = Integer.valueOf(stringValue);
+					controller.setNumRadioActionListener(value);
+				}
+				catch (NumberFormatException e) {
+					ShowWrongFormat();
+				}
+				
 				return true;
 			}
 			
@@ -149,9 +157,16 @@ public class SellDetailView extends AbstractView implements ISellDetailView {
 			@Override
 			public boolean verify(JComponent arg0) {				
 				String stringValue = date.getText();
-				Date value = DateFormat.valueOf(stringValue);
+				Date value = null;
 				
-				controller.setDateActionListener(value);
+				try {
+					value = DateFormat.valueOf(stringValue);
+					controller.setDateActionListener(value);
+				}
+				catch (Exception e) {
+					ShowWrongFormat();
+				}
+				
 				return true;
 			}
 			
@@ -162,14 +177,24 @@ public class SellDetailView extends AbstractView implements ISellDetailView {
 			@Override
 			public boolean verify(JComponent input) {
 				String stringValue = price.getText();
-				double value = Double.valueOf(stringValue);
+				double value = -1;
 				
-				controller.setPriceActionListener(value);
-				
+				try {
+					value = Double.valueOf(stringValue);
+					controller.setPriceActionListener(value);
+				}
+				catch (NumberFormatException e) {
+					ShowWrongFormat();
+				}
+								
 				return true;
 			}
 			
 		});
+	}
+	
+	private void ShowWrongFormat() {
+		JOptionPane.showMessageDialog(this, "Formato inserito errato.");
 	}
 	
 }

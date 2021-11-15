@@ -1,6 +1,6 @@
 package model;
 
-public interface IUserModel {
+public interface IUserModel extends IModel {
 	public int getID();
 	public String getName();
 	public String getSurname();

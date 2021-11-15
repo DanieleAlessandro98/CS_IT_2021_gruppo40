@@ -2,6 +2,6 @@ package model;
 
 import exception.LoginException;
 
-public interface ILoginModel {
+public interface ILoginModel extends IModel {
 	public void login(String username, String password) throws LoginException;
 }

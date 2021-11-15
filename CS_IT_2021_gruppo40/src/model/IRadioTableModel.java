@@ -2,7 +2,7 @@ package model;
 
 import java.util.List;
 
-public interface IRadioTableModel {
+public interface IRadioTableModel extends IModel {
 	public int getSelectedRadioID();
 	
 	public List<IRadioModel> initRadioTable();

@@ -6,7 +6,7 @@ import java.util.List;
 import observer.ObservableRadio;
 import observer.ObserverRadio;
 
-public class RadioModel implements IRadioModel, ObservableRadio {
+public class RadioModel extends AbstractModel implements IRadioModel, ObservableRadio {
 
 	private int id;
 	private Brand brand;
@@ -99,6 +99,26 @@ public class RadioModel implements IRadioModel, ObservableRadio {
 		for (ObserverRadio ob : observers) {
 			ob.updateRadio(this);
 		}
+	}
+
+	@Override
+	public boolean isValidData() {
+		if (brand == null)
+			return false;
+		
+		if (type == null)
+			return false;
+
+		if (color == null || color == "")
+			return false;
+
+		if (optional == null || optional == "")
+			return false;
+
+		if (antenna == null || antenna == "")
+			return false;
+
+		return true;
 	}
 
 }

@@ -3,7 +3,7 @@ package model;
 import exception.SellException;
 import exception.SellExceptionMessage;
 
-public class SellModel implements ISellModel {
+public class SellModel extends AbstractModel implements ISellModel {
 
 	private IUserModel user;
 	private IRadioModel radio;
@@ -39,13 +39,27 @@ public class SellModel implements ISellModel {
 		boolean exception = false;
 		String exceptionMessage = null;
 		
-		if (user.getHalfYearMaxSells() <= UserManagment.getHalfYearCurrentSells(user.getID()))
-		{
+		if (!isValidData()) {
+			exception = true;
+			exceptionMessage = SellExceptionMessage.SELL_INVALID_DATA;
+		}
+		else if (!user.isValidData()) {
+			exception = true;
+			exceptionMessage = SellExceptionMessage.SELL_INVALID_USER_DATA;
+		}
+		else if (!radio.isValidData()) {
+			exception = true;
+			exceptionMessage = SellExceptionMessage.SELL_INVALID_RADIO_DATA;
+		}
+		else if (!sellDetail.isValidData()) {
+			exception = true;
+			exceptionMessage = SellExceptionMessage.SELL_INVALID_SELL_DETAIL_DATA;
+		}
+		else if (user.getHalfYearMaxSells() <= UserManagment.getHalfYearCurrentSells(user.getID())) {
 			exception = true;
 			exceptionMessage = SellExceptionMessage.SELL_HALF_YEAR_MAX_SELLS;
 		}
-		else if (user.getDayCurrentSells() >= MAX_DAY_SELLS)
-		{
+		else if (user.getDayCurrentSells() >= MAX_DAY_SELLS) {
 			exception = true;
 			exceptionMessage = SellExceptionMessage.SELL_DAY_MAX_SELLS;
 		}
@@ -69,6 +83,20 @@ public class SellModel implements ISellModel {
 	@Override
 	public void setSellDetail(Object sellDetail) {
 		this.sellDetail = (ISellDetailModel) sellDetail;
+	}
+
+	@Override
+	public boolean isValidData() {
+		if (user == null)
+			return false;
+		
+		if (radio == null)
+			return false;
+
+		if (sellDetail == null)
+			return false;
+
+		return true;
 	}
 
 }

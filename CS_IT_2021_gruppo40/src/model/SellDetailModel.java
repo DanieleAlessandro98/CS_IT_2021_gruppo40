@@ -7,7 +7,7 @@ import java.util.List;
 import observer.ObservableSellDetail;
 import observer.ObserverSellDetail;
 
-public class SellDetailModel implements ISellDetailModel, ObservableSellDetail {
+public class SellDetailModel extends AbstractModel implements ISellDetailModel, ObservableSellDetail {
 
 	private int numRadio;
 	private Date date;
@@ -97,6 +97,20 @@ public class SellDetailModel implements ISellDetailModel, ObservableSellDetail {
 		for (ObserverSellDetail ob : observers) {
 			ob.updateSellDetail(this);
 		}
+	}
+
+	@Override
+	public boolean isValidData() {		
+		if (numRadio <= 0)
+			return false;
+				
+		if (date == null)
+			return false;
+		
+		if (price < 0)
+			return false;
+		
+		return true;
 	}
 
 }

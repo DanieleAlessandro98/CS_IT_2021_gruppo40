@@ -8,16 +8,16 @@ import exception.LoginExceptionMessage;
 import observer.ObservableLogin;
 import observer.ObserverLogin;
 
-public class LoginModel implements ILoginModel, ObservableLogin {
+public class LoginModel extends AbstractModel implements ILoginModel, ObservableLogin {
 	
 	private String username;
 	private String password;
 	private int userID;
-	
+
 	private List<ObserverLogin> observers;
 	
 	public LoginModel() {
-		userID = -1;
+		setUserID(-1);
 		
 		observers = new ArrayList<>();
 	}
@@ -25,7 +25,7 @@ public class LoginModel implements ILoginModel, ObservableLogin {
 	public LoginModel(String username, String password) {
 		this.username = username;
 		this.password = password;
-		userID = -1;
+		setUserID(-1);
 		
 		observers = new ArrayList<>();
 	}
@@ -39,9 +39,9 @@ public class LoginModel implements ILoginModel, ObservableLogin {
 	}
 	
 	private void processLogin() throws LoginException {
-		userID = LoginManagment.login(username, password);
+		setUserID(LoginManagment.login(username, password));
 		
-		if (userID == -1)
+		if (!isValidData())
 			throw new LoginException(LoginExceptionMessage.LOGIN_USER_NOT_FOUND);
 
 		notifyObservers();
@@ -60,7 +60,29 @@ public class LoginModel implements ILoginModel, ObservableLogin {
 	@Override
 	public void notifyObservers() {
 		for (ObserverLogin ob : observers)
-			ob.update(userID);
+			ob.update(getUserID());
+	}
+
+	@Override
+	public boolean isValidData() {
+		if (username == null || username == "")
+			return false;
+		
+		if (password == null || password == "")
+			return false;
+		
+		if (getUserID() == -1)
+			return false;
+
+		return true;
+	}
+	
+	private int getUserID() {
+		return userID;
+	}
+
+	private void setUserID(int userID) {
+		this.userID = userID;
 	}
 	
 }

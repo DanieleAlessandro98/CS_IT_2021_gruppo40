@@ -6,7 +6,7 @@ import java.util.List;
 import observer.ObservableSelectRadio;
 import observer.ObserverSelectRadio;
 
-public class RadioTableModel implements IRadioTableModel, ObservableSelectRadio {
+public class RadioTableModel extends AbstractModel implements IRadioTableModel, ObservableSelectRadio {
 	
 	private int selectedRadioID;
 	
@@ -47,6 +47,14 @@ public class RadioTableModel implements IRadioTableModel, ObservableSelectRadio 
 	public void notifyObservers() {
 		for (ObserverSelectRadio ob : observers)
 			ob.update(getSelectedRadioID());
+	}
+
+	@Override
+	public boolean isValidData() {
+		if (getSelectedRadioID() == -1)
+			return false;
+		
+		return true;
 	}
 	
 }

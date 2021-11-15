@@ -2,7 +2,7 @@ package model;
 
 import java.util.Date;
 
-public interface ISellDetailModel {
+public interface ISellDetailModel extends IModel {
 	public int getNumRadio();
 	public Date getDate();
 	public double getPrice();

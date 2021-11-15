@@ -6,7 +6,7 @@ import java.util.List;
 import observer.ObservableUser;
 import observer.ObserverUser;
 
-public class UserModel implements IUserModel, ObservableUser {
+public class UserModel extends AbstractModel implements IUserModel, ObservableUser {
 
 	private int id;
 	private String name;
@@ -88,6 +88,17 @@ public class UserModel implements IUserModel, ObservableUser {
 		for (ObserverUser ob : observers) {
 			ob.updateUser(this);
 		}
+	}
+
+	@Override
+	public boolean isValidData() {
+		if (name == null || name == "")
+			return false;
+
+		if (surname == null || surname == "")
+			return false;
+
+		return true;
 	}
 
 }
