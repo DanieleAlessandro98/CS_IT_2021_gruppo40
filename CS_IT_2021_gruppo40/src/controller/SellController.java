@@ -9,7 +9,6 @@ import exception.SellException;
 import factory.FactoryObservable;
 import factory.FactorySell;
 import factory.WindowsSell;
-import model.SellModel;
 import model.contracts.ISellModel;
 import observer.ObserverRadio;
 import observer.ObserverSellDetail;
@@ -27,7 +26,7 @@ public class SellController extends AbstractController implements ISellControlle
 	public SellController(FactoryObservable observable, ISellView view) {
 		super(observable);
 		
-		this.model = new SellModel();
+		this.model = (ISellModel) observable.getObservableSell();
 		this.view = view;
 		
 		controllers = new ArrayList<>();

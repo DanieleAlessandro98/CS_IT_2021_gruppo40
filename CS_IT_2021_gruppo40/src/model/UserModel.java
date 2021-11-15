@@ -59,8 +59,8 @@ public class UserModel extends AbstractModel implements IUserModel, ObservableUs
 	}
 
 	@Override
-	public void setDayCurrentSells(int numSells) {
-		this.dayCurrentSells = numSells;
+	public void setDayCurrentSells() {
+		this.dayCurrentSells = UserService.getDayCurrentSells(id);
 	}
 
 	@Override

@@ -8,5 +8,5 @@ public interface IUserModel extends IModel {
 	public int getHalfYearMaxSells();
 	
 	public void setData(int userID);
-	public void setDayCurrentSells(int numSells);
+	public void setDayCurrentSells();
 }

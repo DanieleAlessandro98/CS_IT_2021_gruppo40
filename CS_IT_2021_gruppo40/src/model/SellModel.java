@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import database.services.SellService;
 import database.services.UserService;
 import exception.SellException;
@@ -8,16 +11,22 @@ import model.contracts.IRadioModel;
 import model.contracts.ISellDetailModel;
 import model.contracts.ISellModel;
 import model.contracts.IUserModel;
+import observer.ObservableSell;
+import observer.ObserverSell;
 
-public class SellModel extends AbstractModel implements ISellModel {
+public class SellModel extends AbstractModel implements ISellModel, ObservableSell {
 
 	private IUserModel user;
 	private IRadioModel radio;
 	private ISellDetailModel sellDetail;
 	
+	private List<ObserverSell> observers;
+	
 	private static final int MAX_DAY_SELLS = 50;
 	
-	public SellModel() {}
+	public SellModel() {
+		observers = new ArrayList<>();
+	}
 	
 	@Override
 	public IUserModel getUser() {
@@ -68,6 +77,7 @@ public class SellModel extends AbstractModel implements ISellModel {
 			throw new SellException(exceptionMessage);
 		
 		SellService.insertSell(user, radio, sellDetail);
+		notifyObservers();
 	}
 
 	@Override
@@ -97,6 +107,23 @@ public class SellModel extends AbstractModel implements ISellModel {
 			return false;
 
 		return true;
+	}
+
+	@Override
+	public void addObserver(ObserverSell observer) {
+		observers.add(observer);
+	}
+
+	@Override
+	public void removeObserver(ObserverSell observer) {
+		observers.remove(observer);
+	}
+
+	@Override
+	public void notifyObservers() {
+		for (ObserverSell ob : observers) {
+			ob.updateSell();
+		}
 	}
 
 }

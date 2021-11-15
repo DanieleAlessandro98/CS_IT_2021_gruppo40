@@ -4,9 +4,10 @@ import controller.contracts.IUserController;
 import factory.FactoryObservable;
 import model.contracts.IUserModel;
 import observer.ObserverLogin;
+import observer.ObserverSell;
 import view.contracts.IUserView;
 
-public class UserController extends AbstractController implements IUserController, ObserverLogin {
+public class UserController extends AbstractController implements IUserController, ObserverLogin, ObserverSell {
 	
 	private IUserModel model;
 	private IUserView view;
@@ -26,11 +27,18 @@ public class UserController extends AbstractController implements IUserControlle
 	@Override
 	public void bindObserver() {
 		observable.addObserverLogin(this);
+		observable.addObserverSell(this);
 	}
 
 	@Override
 	public void updateLogin(int userID) {
 		model.setData(userID);
+		view.updateUser(model);
+	}
+
+	@Override
+	public void updateSell() {
+		model.setDayCurrentSells();
 		view.updateUser(model);
 	}
 
