@@ -59,15 +59,15 @@ public class SellDetailView extends AbstractView implements ISellDetailView {
 		JLabel priceLabel;
 		
 		numRadioLabel = new JLabel("Numero radio");
-		numRadioLabel.setBounds(12, 37, 100, 10);
+		numRadioLabel.setBounds(152, 37, 100, 10);
 		this.add(numRadioLabel);
 		
 		dateLabel = new JLabel("Data");
-		dateLabel.setBounds(12, 77, 100, 10);
+		dateLabel.setBounds(152, 80, 100, 10);
 		this.add(dateLabel);
 
 		priceLabel = new JLabel("Prezzo");
-		priceLabel.setBounds(152, 37, 100, 10);
+		priceLabel.setBounds(12, 80, 100, 10);
 		this.add(priceLabel);
 	}
 
@@ -80,9 +80,9 @@ public class SellDetailView extends AbstractView implements ISellDetailView {
 
 	@Override
 	public void setPositionComponents() {
-		numRadio.setBounds(12, 47, 100, 20);
-		date.setBounds(12, 87, 100, 20);
-		price.setBounds(152, 47, 100, 20);
+		numRadio.setBounds(152, 47, 100, 20);
+		date.setBounds(152, 90, 100, 20);
+		price.setBounds(12, 90, 100, 20);
 	}
 
 	@Override

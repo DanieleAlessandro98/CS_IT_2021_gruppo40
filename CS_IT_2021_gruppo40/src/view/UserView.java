@@ -23,6 +23,7 @@ public class UserView extends AbstractView implements IUserView {
 
 	private JTextField name;
 	private JTextField surname;
+	private JTextField currentDaySell;
 	private JTextField maxHalfYearSell;
 	
 	private IUserController controller;
@@ -34,6 +35,8 @@ public class UserView extends AbstractView implements IUserView {
 		initComponents();
 		addComponents();
 		setPositionComponents();
+		
+		setEditableStatus(false);
 	}
 
 	@Override
@@ -47,10 +50,12 @@ public class UserView extends AbstractView implements IUserView {
 	public void initComponents() {
 		name = new JTextField();
 		surname = new JTextField();
+		currentDaySell = new JTextField();
 		maxHalfYearSell = new JTextField();	
 		
 		JLabel nameLabel;
 		JLabel surnameLabel;
+		JLabel currentDaySellLabel;
 		JLabel maxHalfYearSellLabel;
 		
 		nameLabel = new JLabel("Nome");
@@ -61,6 +66,10 @@ public class UserView extends AbstractView implements IUserView {
 		surnameLabel.setBounds(12, 86, 100, 16);
 		this.add(surnameLabel);
 
+		currentDaySellLabel = new JLabel("Vendite giornaliere");
+		currentDaySellLabel.setBounds(152, 89, 175, 10);
+		this.add(currentDaySellLabel);
+		
 		maxHalfYearSellLabel = new JLabel("Massimo vendite per semestre");
 		maxHalfYearSellLabel.setBounds(152, 32, 175, 10);
 		this.add(maxHalfYearSellLabel);
@@ -70,6 +79,7 @@ public class UserView extends AbstractView implements IUserView {
 	public void addComponents() {
 		this.add(name);
 		this.add(surname);
+		this.add(currentDaySell);
 		this.add(maxHalfYearSell);
 	}
 
@@ -77,6 +87,7 @@ public class UserView extends AbstractView implements IUserView {
 	public void setPositionComponents() {
 		name.setBounds(12, 42, 100, 20);
 		surname.setBounds(12, 101, 100, 20);
+		currentDaySell.setBounds(152, 101, 100, 20);
 		maxHalfYearSell.setBounds(152, 42, 100, 20);
 	}
 
@@ -94,7 +105,15 @@ public class UserView extends AbstractView implements IUserView {
 	public void updateUser(IUserModel user) {
 		name.setText(user.getName());
 		surname.setText(user.getSurname());
+		currentDaySell.setText(String.valueOf(user.getDayCurrentSells()));
 		maxHalfYearSell.setText(String.valueOf(user.getHalfYearMaxSells()));
+	}
+	
+	private void setEditableStatus(boolean status) {
+		name.setEditable(status);
+		surname.setEditable(status);
+		currentDaySell.setEditable(status);
+		maxHalfYearSell.setEditable(status);
 	}
 	
 }

@@ -61,10 +61,10 @@ public class SellView extends AbstractView implements ISellView {
 
 	@Override
 	public void addComponents() {
+		this.add(radioTableView.getView());
 		this.add(userView.getView());
 		this.add(sellDetailView.getView());
 		this.add(radioView.getView());
-		this.add(radioTableView.getView());
 		
 		this.add(btnInsertSell);
 	}
@@ -76,8 +76,8 @@ public class SellView extends AbstractView implements ISellView {
 		userView.getView().setLocation(10, 33 * (++i));
 		sellDetailView.getView().setLocation(10, userView.getView().getHeight() + (30 * (++i)));
 		radioView.getView().setLocation(10, userView.getView().getHeight() + sellDetailView.getView().getHeight() + (30 * (++i)));
-		radioTableView.getView().setLocation(10, userView.getView().getHeight() + sellDetailView.getView().getHeight() + radioView.getView().getHeight() + (30 * (++i)));
-
+		radioTableView.getView().setLocation(20, 248);
+		
 		btnInsertSell.setLocation(100, 565);
 	}
 

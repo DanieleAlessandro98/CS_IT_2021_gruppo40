@@ -61,7 +61,7 @@ public class RadioTableView extends AbstractView implements IRadioTableView {
 	@Override
 	public void initProperty() {
 		this.setLayout(null);
-		this.setBounds(10, 10, 200, 200);
+		this.setBounds(10, 10, 140, 25);
 	}
 
 	@Override

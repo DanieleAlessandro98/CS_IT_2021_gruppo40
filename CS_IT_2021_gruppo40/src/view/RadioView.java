@@ -36,6 +36,8 @@ public class RadioView extends AbstractView implements IRadioView {
 		initComponents();
 		addComponents();
 		setPositionComponents();
+		
+		setEditableStatus(false);
 	}
 	
 	@Override
@@ -124,6 +126,15 @@ public class RadioView extends AbstractView implements IRadioView {
 		color.setText(radio.getColor());
 		optional.setText(radio.getOptional());
 		antenna.setText(radio.getAntenna());
+	}
+	
+	private void setEditableStatus(boolean status) {
+		brand.setEditable(status);
+		type.setEditable(status);
+		size.setEditable(status);
+		color.setEditable(status);
+		optional.setEditable(status);
+		antenna.setEditable(status);
 	}
 	
 }
