@@ -16,11 +16,6 @@ public class SellDetailModel extends AbstractModel implements ISellDetailModel, 
 	
 	private List<ObserverSellDetail> observers;
 	
-	/*
-	private IUserModel user;
-	private IRadioModel radio;
-	*/
-	
 	public SellDetailModel() {
 		observers = new ArrayList<>();
 	}
@@ -29,11 +24,6 @@ public class SellDetailModel extends AbstractModel implements ISellDetailModel, 
 		this.numRadio = numRadio;
 		this.date = date;
 		this.price = price;
-		
-		/*
-		this.user = user;
-		this.radio = radio;
-		*/
 		
 		observers = new ArrayList<>();
 	}
@@ -52,18 +42,6 @@ public class SellDetailModel extends AbstractModel implements ISellDetailModel, 
 	public double getPrice() {
 		return price;
 	}
-
-	/*
-	@Override
-	public IUserModel getUser() {
-		return user;
-	}
-
-	@Override
-	public IRadioModel getRadio() {
-		return radio;
-	}
-	*/
 	
 	@Override
 	public void setNumRadio(int numRadio) {

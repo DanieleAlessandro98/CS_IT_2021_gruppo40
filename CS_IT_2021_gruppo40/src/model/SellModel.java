@@ -1,7 +1,7 @@
 package model;
 
-import database.services.SellManagment;
-import database.services.UserManagment;
+import database.services.SellService;
+import database.services.UserService;
 import exception.SellException;
 import exception.SellExceptionMessage;
 import model.contracts.IRadioModel;
@@ -61,7 +61,7 @@ public class SellModel extends AbstractModel implements ISellModel {
 			exception = true;
 			exceptionMessage = SellExceptionMessage.SELL_INVALID_SELL_DETAIL_DATA;
 		}
-		else if (user.getHalfYearMaxSells() <= UserManagment.getHalfYearCurrentSells(user.getID())) {
+		else if (user.getHalfYearMaxSells() <= UserService.getHalfYearCurrentSells(user.getID())) {
 			exception = true;
 			exceptionMessage = SellExceptionMessage.SELL_HALF_YEAR_MAX_SELLS;
 		}
@@ -73,7 +73,7 @@ public class SellModel extends AbstractModel implements ISellModel {
 		if (exception)
 			throw new SellException(exceptionMessage);
 		
-		SellManagment.insertSell(user, radio, sellDetail);
+		SellService.insertSell(user, radio, sellDetail);
 	}
 
 	@Override

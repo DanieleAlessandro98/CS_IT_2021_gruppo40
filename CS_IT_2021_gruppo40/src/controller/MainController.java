@@ -49,7 +49,7 @@ public class MainController extends AbstractController implements ObserverLogin 
 	}
 	
 	@Override
-	public void update(int userID) {
+	public void updateLogin(int userID) {
 		view.updateWindow(Window.SELL);
 	}
 	

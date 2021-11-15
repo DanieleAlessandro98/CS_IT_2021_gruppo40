@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-import database.services.RadioManagment;
+import database.services.RadioService;
 import model.contracts.IRadioModel;
 import model.contracts.IRadioTableModel;
 import observer.ObservableSelectRadio;
@@ -27,7 +27,7 @@ public class RadioTableModel extends AbstractModel implements IRadioTableModel, 
 	
 	@Override
 	public List<IRadioModel> initRadioTable() {
-		return RadioManagment.getRadiosData();
+		return RadioService.getRadiosData();
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class RadioTableModel extends AbstractModel implements IRadioTableModel, 
 	@Override
 	public void notifyObservers() {
 		for (ObserverSelectRadio ob : observers)
-			ob.update(getSelectedRadioID());
+			ob.updateSelectRadio(getSelectedRadioID());
 	}
 
 	@Override

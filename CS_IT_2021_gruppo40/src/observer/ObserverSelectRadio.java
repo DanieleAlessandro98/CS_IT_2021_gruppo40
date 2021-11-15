@@ -1,5 +1,5 @@
 package observer;
 
 public interface ObserverSelectRadio {
-	public void update(int radioID);
+	public void updateSelectRadio(int radioID);
 }

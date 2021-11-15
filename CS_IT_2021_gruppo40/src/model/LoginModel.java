@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-import database.services.LoginManagment;
+import database.services.LoginService;
 import exception.LoginException;
 import exception.LoginExceptionMessage;
 import model.contracts.ILoginModel;
@@ -41,7 +41,7 @@ public class LoginModel extends AbstractModel implements ILoginModel, Observable
 	}
 	
 	private void processLogin() throws LoginException {
-		setUserID(LoginManagment.login(username, password));
+		setUserID(LoginService.login(username, password));
 		
 		if (!isValidData())
 			throw new LoginException(LoginExceptionMessage.LOGIN_USER_NOT_FOUND);
@@ -62,7 +62,7 @@ public class LoginModel extends AbstractModel implements ILoginModel, Observable
 	@Override
 	public void notifyObservers() {
 		for (ObserverLogin ob : observers)
-			ob.update(getUserID());
+			ob.updateLogin(getUserID());
 	}
 
 	@Override

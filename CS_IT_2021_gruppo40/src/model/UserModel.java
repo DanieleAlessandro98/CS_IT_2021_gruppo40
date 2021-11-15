@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-import database.services.UserManagment;
+import database.services.UserService;
 import model.contracts.IUserModel;
 import observer.ObservableUser;
 import observer.ObserverUser;
@@ -64,7 +64,7 @@ public class UserModel extends AbstractModel implements IUserModel, ObservableUs
 
 	@Override
 	public void setData(int userID) {
-		IUserModel tempUser = UserManagment.getData(userID);
+		IUserModel tempUser = UserService.getData(userID);
 		
 		this.id = tempUser.getID();
 		this.name = tempUser.getName();

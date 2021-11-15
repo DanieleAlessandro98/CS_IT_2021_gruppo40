@@ -29,7 +29,7 @@ public class RadioController extends AbstractController implements IRadioControl
 	}
 
 	@Override
-	public void update(int radioID) {
+	public void updateSelectRadio(int radioID) {
 		model.setData(radioID);
 		view.updateRadio(model);
 	}

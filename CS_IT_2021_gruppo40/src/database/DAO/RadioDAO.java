@@ -18,10 +18,20 @@ import model.contracts.IRadioModel;
 public class RadioDAO {
 
 	public static List<IRadioModel> getRadiosData() throws DatabaseException {
-		String query = "SELECT r.id, r.size, r.color, r.optional, r.antenna, b.name AS brand_name, t.name AS type_name\r\n" + 
-				"FROM Radios r\r\n" + 
-				"JOIN Brands b ON r.brand = b.id\r\n" + 
-				"JOIN Types t ON r.type = t.id;";
+		String query = "SELECT \r\n" + 
+				"    r.id,\r\n" + 
+				"    r.size,\r\n" + 
+				"    r.color,\r\n" + 
+				"    r.optional,\r\n" + 
+				"    r.antenna,\r\n" + 
+				"    b.name AS brand_name,\r\n" + 
+				"    t.name AS type_name\r\n" + 
+				"FROM\r\n" + 
+				"    Radios r\r\n" + 
+				"        JOIN\r\n" + 
+				"    Brands b ON r.brand = b.id\r\n" + 
+				"        JOIN\r\n" + 
+				"    Types t ON r.type = t.id;";
 		
 		List<IRadioModel> result = new ArrayList<>();
 		

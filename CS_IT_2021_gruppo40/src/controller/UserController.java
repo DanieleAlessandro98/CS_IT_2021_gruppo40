@@ -29,7 +29,7 @@ public class UserController extends AbstractController implements IUserControlle
 	}
 
 	@Override
-	public void update(int userID) {
+	public void updateLogin(int userID) {
 		model.setData(userID);
 		view.updateUser(model);
 	}

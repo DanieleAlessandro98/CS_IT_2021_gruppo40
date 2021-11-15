@@ -3,7 +3,7 @@ package database.services;
 import database.DAO.LoginDAO;
 import exception.DatabaseException;
 
-public class LoginManagment {
+public class LoginService {
 	
 	public static int login(String username, String password) {
 		int result = -1;

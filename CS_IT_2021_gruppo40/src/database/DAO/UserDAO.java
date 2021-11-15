@@ -17,7 +17,12 @@ import utility.DateFormat;
 public class UserDAO {
 
 	public static int getDayCurrentSells(int userID) throws DatabaseException {
-		String query = "SELECT COUNT(user_id) AS day_sells FROM Sells WHERE date = date(now()) AND user_id = ?;";
+		String query = "SELECT \r\n" + 
+				"    COUNT(user_id) AS day_sells\r\n" + 
+				"FROM\r\n" + 
+				"    Sells\r\n" + 
+				"WHERE\r\n" + 
+				"    date = DATE(NOW()) AND user_id = ?;";
 		
 		int result = 0;
 		
@@ -48,7 +53,13 @@ public class UserDAO {
 	}
 	
 	public static int getHalfYearCurrentSells(int userID) throws DatabaseException {
-		String query = "SELECT COUNT(user_id) AS half_year_sells FROM Sells WHERE user_id = ? AND date BETWEEN ? AND ?;";
+		String query = "SELECT \r\n" + 
+				"    COUNT(user_id) AS half_year_sells\r\n" + 
+				"FROM\r\n" + 
+				"    Sells\r\n" + 
+				"WHERE\r\n" + 
+				"    user_id = ?\r\n" + 
+				"        AND date BETWEEN ? AND ?;";
 		
 		int result = 0;
 		
@@ -68,6 +79,7 @@ public class UserDAO {
 			statement.setDate(2, DateFormat.convertToSQLFormat(halfYearRange.get(0)));
 			statement.setDate(3, DateFormat.convertToSQLFormat(halfYearRange.get(1)));
 			
+			System.out.println(statement);
 			ResultSet resultSet = statement.executeQuery();
 			while (resultSet.next()) {
 				result = resultSet.getInt("half_year_sells");

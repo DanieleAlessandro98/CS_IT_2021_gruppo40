@@ -4,7 +4,7 @@ import database.DAO.UserDAO;
 import exception.DatabaseException;
 import model.contracts.IUserModel;
 
-public class UserManagment {
+public class UserService {
 
 	public static int getDayCurrentSells(int userID) {
 		int result = -1;

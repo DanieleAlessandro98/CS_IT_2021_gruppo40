@@ -6,7 +6,7 @@ import model.contracts.IRadioModel;
 import model.contracts.ISellDetailModel;
 import model.contracts.IUserModel;
 
-public class SellManagment {
+public class SellService {
 	
 	public static void insertSell(IUserModel user, IRadioModel radio, ISellDetailModel sellDetail) {
 		try {

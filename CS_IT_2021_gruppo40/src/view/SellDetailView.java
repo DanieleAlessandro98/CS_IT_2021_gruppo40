@@ -28,13 +28,6 @@ public class SellDetailView extends AbstractView implements ISellDetailView {
 	private JTextField date;
 	private JTextField price;
 	
-	/*
-	 * Temporaneamente disabilitati
-	 * Probabilmente info di user e radio saranno date dalle altre rispettive viste
-	private JTextField user;
-	private JTextField radio;
-	*/
-	
 	private ISellDetailController controller;
 	
 	public SellDetailView() {
@@ -61,19 +54,9 @@ public class SellDetailView extends AbstractView implements ISellDetailView {
 		date = new JTextField();
 		price = new JTextField();
 		
-		/*
-		user = new JTextField();
-		radio = new JTextField();
-		*/
-		
 		JLabel numRadioLabel;
 		JLabel dateLabel;
 		JLabel priceLabel;
-		
-		/*
-		JLabel userLabel;
-		JLabel radioLabel;
-		*/
 		
 		numRadioLabel = new JLabel("Numero radio");
 		numRadioLabel.setBounds(12, 37, 100, 10);
@@ -86,16 +69,6 @@ public class SellDetailView extends AbstractView implements ISellDetailView {
 		priceLabel = new JLabel("Prezzo");
 		priceLabel.setBounds(152, 37, 100, 10);
 		this.add(priceLabel);
-
-		/*
-		userLabel = new JLabel("Utente");
-		userLabel.setBounds(150, 50, 100, 10);
-		this.add(userLabel);
-
-		radioLabel = new JLabel("Radio");
-		radioLabel.setBounds(10, 100, 100, 10);
-		this.add(radioLabel);
-		*/
 	}
 
 	@Override
@@ -103,11 +76,6 @@ public class SellDetailView extends AbstractView implements ISellDetailView {
 		this.add(numRadio);
 		this.add(date);
 		this.add(price);
-		
-		/*
-		this.add(user);
-		this.add(radio);
-		*/
 	}
 
 	@Override
@@ -115,11 +83,6 @@ public class SellDetailView extends AbstractView implements ISellDetailView {
 		numRadio.setBounds(12, 47, 100, 20);
 		date.setBounds(12, 87, 100, 20);
 		price.setBounds(152, 47, 100, 20);
-		
-		/*
-		user.setBounds(150, 60, 100, 20);
-		radio.setBounds(10, 110, 100, 20);
-		*/
 	}
 
 	@Override

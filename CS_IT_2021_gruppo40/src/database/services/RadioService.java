@@ -6,7 +6,7 @@ import database.DAO.RadioDAO;
 import exception.DatabaseException;
 import model.contracts.IRadioModel;
 
-public class RadioManagment {
+public class RadioService {
 
 	public static List<IRadioModel> getRadiosData() {
 		List<IRadioModel> result = null;

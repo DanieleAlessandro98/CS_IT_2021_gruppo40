@@ -13,7 +13,12 @@ import utility.Hash;
 public class LoginDAO {
 
 	public static int login(String username, String password) throws DatabaseException {
-		String query = "SELECT id FROM Users WHERE username = ? AND password = ?;";
+		String query = "SELECT \r\n" + 
+				"    id\r\n" + 
+				"FROM\r\n" + 
+				"    Users\r\n" + 
+				"WHERE\r\n" + 
+				"    username = ? AND password = ?;";
 		
 		int result = -1;
 		

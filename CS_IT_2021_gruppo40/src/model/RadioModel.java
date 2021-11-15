@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-import database.services.RadioManagment;
+import database.services.RadioService;
 import model.contracts.IRadioModel;
 import observer.ObservableRadio;
 import observer.ObserverRadio;
@@ -73,7 +73,7 @@ public class RadioModel extends AbstractModel implements IRadioModel, Observable
 
 	@Override
 	public void setData(int radioID) {
-		IRadioModel tempRadio = RadioManagment.getData(radioID);
+		IRadioModel tempRadio = RadioService.getData(radioID);
 		
 		this.id = tempRadio.getID();
 		this.brand = tempRadio.getBrand();
