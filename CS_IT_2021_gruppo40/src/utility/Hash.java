@@ -4,6 +4,11 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * Classe di utilità generale che si occupa della manipolazione delle password (formato MD5)
+ * @author Alex
+ *
+ */
 public class Hash {
 
 	/**

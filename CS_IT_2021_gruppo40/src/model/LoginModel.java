@@ -10,6 +10,12 @@ import model.contracts.ILoginModel;
 import observer.ObservableLogin;
 import observer.ObserverLogin;
 
+/**
+ * Classe concreta del package Model
+ * Si occupa anche di implementare la logica di business per quanto riguarda la fase di login
+ * @author Alex
+ *
+ */
 public class LoginModel extends AbstractModel implements ILoginModel, ObservableLogin {
 	
 	private String username;

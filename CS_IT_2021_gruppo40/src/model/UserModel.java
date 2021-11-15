@@ -8,6 +8,12 @@ import model.contracts.IUserModel;
 import observer.ObservableUser;
 import observer.ObserverUser;
 
+/**
+ * Classe concreta del package Model
+ * Si occupa anche di implementare la logica di business per quanto riguarda l'utente
+ * @author Alex
+ *
+ */
 public class UserModel extends AbstractModel implements IUserModel, ObservableUser {
 
 	private int id;

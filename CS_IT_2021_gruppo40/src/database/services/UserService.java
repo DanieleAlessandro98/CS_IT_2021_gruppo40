@@ -1,5 +1,8 @@
 package database.services;
 
+/**
+ * Classe che si occupa di interfacciarsi con la relativa classe DAO con lo scopo di acquisire o memorizzare informazioni relative all'utente
+ */
 import database.DAO.UserDAO;
 import exception.DatabaseException;
 import model.contracts.IUserModel;

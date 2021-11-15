@@ -5,6 +5,11 @@ import java.awt.Frame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+/**
+ * Classe di utilità generale che si occupa del Frame
+ * @author Alex
+ *
+ */
 public class ParentFrame {
 	
 	/**

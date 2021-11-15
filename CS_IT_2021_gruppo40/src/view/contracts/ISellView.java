@@ -4,6 +4,11 @@ import javax.swing.JComponent;
 
 import controller.contracts.ISellController;
 
+/**
+ * Interfaccia della view che si occupa della parte di vendita
+ * @author Alex
+ *
+ */
 public interface ISellView {
 	public JComponent getUserView();
 	public JComponent getSellDetailView();

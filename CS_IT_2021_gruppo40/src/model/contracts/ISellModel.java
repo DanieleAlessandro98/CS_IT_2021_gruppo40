@@ -2,6 +2,11 @@ package model.contracts;
 
 import exception.SellException;
 
+/**
+ * Interfaccia del model che si occupa della parte di vendita
+ * @author Alex
+ *
+ */
 public interface ISellModel extends IModel {
 	public IUserModel getUser();
 	public IRadioModel getRadio();

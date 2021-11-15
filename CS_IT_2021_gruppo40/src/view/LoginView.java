@@ -13,6 +13,12 @@ import javax.swing.border.TitledBorder;
 import controller.contracts.ILoginController;
 import view.contracts.ILoginView;
 
+/**
+ * Classe concreta del package view
+ * Si occupa anche di implementare tutto ciò che occorre per la visualizzazione grafica della fase di login
+ * @author Alex
+ *
+ */
 public class LoginView extends AbstractView implements ILoginView {
 
 	/**

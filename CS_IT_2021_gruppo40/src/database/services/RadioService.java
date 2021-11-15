@@ -1,5 +1,8 @@
 package database.services;
 
+/**
+ * Classe che si occupa di interfacciarsi con la relativa classe DAO con lo scopo di acquisire o memorizzare informazioni relative alle radio
+ */
 import java.util.List;
 
 import database.DAO.RadioDAO;

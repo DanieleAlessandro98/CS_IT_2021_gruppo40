@@ -8,6 +8,11 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+/**
+ * Classe di utilità generale che si occupa della manipolazione e formattazione delle date
+ * @author Alex
+ *
+ */
 public class DateFormat {
 
 	public static java.sql.Date convertToSQLFormat(java.util.Date utilDate) {

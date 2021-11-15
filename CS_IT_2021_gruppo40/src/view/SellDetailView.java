@@ -14,6 +14,12 @@ import view.contracts.ISellDetailView;
 import java.awt.Color;
 import java.util.Date;
 
+/**
+ * Classe concreta del package view
+ * Si occupa anche di implementare tutto ciò che occorre per la visualizzazione grafica dei dettagli della vendita
+ * @author Alex
+ *
+ */
 public class SellDetailView extends AbstractView implements ISellDetailView {
 	
 	/**

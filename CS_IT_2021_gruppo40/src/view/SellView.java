@@ -11,6 +11,14 @@ import controller.contracts.ISellController;
 import view.contracts.ISellView;
 import view.contracts.IView;
 
+/**
+ * Classe concreta del package view
+ * Si occupa di istanziare quelli che sono le viste che componogono la vendita (in questo caso l'utente, la radio selezionata, i dettagli della vendita
+ * e le radio presenti nel database).
+ * Inoltre una volta fatto ciò, svolge le operazioni principali per il posizionamento dei componenti nella finestra principale
+ * @author Alex
+ *
+ */
 public class SellView extends AbstractView implements ISellView {
 
 	/**

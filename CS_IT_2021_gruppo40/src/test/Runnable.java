@@ -10,6 +10,11 @@ import factory.FactoryObservable;
 import view.MainView;
 import view.contracts.IMainView;
 
+/**
+ * Classe che si occupa di istanziare e mettere i moto ciò che sono i componenti di avvio del software
+ * @author Alex
+ *
+ */
 public class Runnable {
 	
 	private FactoryObservable observable;

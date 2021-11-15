@@ -11,6 +11,11 @@ import view.contracts.ISellDetailView;
 import view.contracts.ISellView;
 import view.contracts.IUserView;
 
+/**
+ * Classe che applica la definizione del pattern Factory per i controller del sell
+ * @author Alex
+ *
+ */
 public class FactorySell {
 
 	public FactorySell() {}

@@ -1,5 +1,11 @@
 package controller;
 
+/**
+ * Classe concreta del package Controller
+ * Si occupa di creare e gestire la connessione tra i dati delle radio (all'interno del db) presenti nel model, e la visualizzazione di questi nella view
+ * @author Alex
+ *
+ */
 import controller.contracts.IRadioTableController;
 import factory.FactoryObservable;
 import model.contracts.IRadioTableModel;

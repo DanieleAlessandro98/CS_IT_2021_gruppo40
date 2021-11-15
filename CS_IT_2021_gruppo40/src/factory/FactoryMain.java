@@ -7,6 +7,11 @@ import view.contracts.ILoginView;
 import view.contracts.IMainView;
 import view.contracts.ISellView;
 
+/**
+ * Classe che applica la definizione del pattern Factory per i controller del main
+ * @author Alex
+ *
+ */
 public class FactoryMain {
 
 	public FactoryMain() {}

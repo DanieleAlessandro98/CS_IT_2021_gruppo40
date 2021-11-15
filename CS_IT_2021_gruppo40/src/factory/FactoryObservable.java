@@ -19,6 +19,11 @@ import observer.ObserverSell;
 import observer.ObserverSellDetail;
 import observer.ObserverUser;
 
+/**
+ * Classe che applica la definizione del pattern Factory per le classi Observable
+ * @author Alex
+ *
+ */
 public class FactoryObservable {
 
 	private ObservableLogin observableLogin;

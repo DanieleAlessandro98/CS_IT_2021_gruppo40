@@ -11,6 +11,12 @@ import view.contracts.IUserView;
 
 import javax.swing.UIManager;
 
+/**
+ *  * Classe concreta del package view
+ * Si occupa anche di implementare tutto ciò che occorre per la visualizzazione grafica dei dati dell'utente
+ * @author Alex
+ *
+ */
 public class UserView extends AbstractView implements IUserView {
 	
 	/**

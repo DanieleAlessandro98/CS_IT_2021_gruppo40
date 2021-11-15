@@ -10,6 +10,12 @@ import view.contracts.IRadioView;
 
 import java.awt.Color;
 
+/**
+ * Classe concreta del package view
+ * Si occupa anche di implementare tutto ciò che occorre per la visualizzazione grafica della radio selezionata
+ * @author Alex
+ *
+ */
 public class RadioView extends AbstractView implements IRadioView {
 	
 	/**

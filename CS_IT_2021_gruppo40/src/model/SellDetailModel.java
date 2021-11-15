@@ -8,6 +8,12 @@ import model.contracts.ISellDetailModel;
 import observer.ObservableSellDetail;
 import observer.ObserverSellDetail;
 
+/**
+ * Classe concreta del package Model
+ * Si occupa anche di implementare la logica di business per quanto riguarda i dettagli della vendita
+ * @author Alex
+ *
+ */
 public class SellDetailModel extends AbstractModel implements ISellDetailModel, ObservableSellDetail {
 
 	private int numRadio;

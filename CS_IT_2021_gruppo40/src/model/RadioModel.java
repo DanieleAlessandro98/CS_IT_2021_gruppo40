@@ -8,6 +8,12 @@ import model.contracts.IRadioModel;
 import observer.ObservableRadio;
 import observer.ObserverRadio;
 
+/**
+ * Classe concreta del package Model
+ * Si occupa anche di implementare la logica di business per quanto riguarda la radio selezionata
+ * @author Alex
+ *
+ */
 public class RadioModel extends AbstractModel implements IRadioModel, ObservableRadio {
 
 	private int id;

@@ -1,5 +1,8 @@
 package database;
 
+/**
+ * Classe che si occupa di ottenere la connessione con la base di dati
+ */
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

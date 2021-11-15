@@ -15,6 +15,15 @@ import observer.ObserverSellDetail;
 import observer.ObserverUser;
 import view.contracts.ISellView;
 
+/**
+ * Classe concreta del package Controller
+ * Si occupa di istanziare quelli che sono i controller che componogono la vendita (in questo caso l'utente, la radio selezionata, i dettagli della vendita
+ * e le radio presenti nel database).
+ * Inoltre una volta fatto ciò, svolge le operazioni principali per il binding di questi controller
+ * Si occupa anche di creare e gestire la connessione tra il model e la view
+ * @author Alex
+ *
+ */
 public class SellController extends AbstractController implements ISellController, ObserverUser, ObserverRadio, ObserverSellDetail {
 	
 	private ISellModel model;

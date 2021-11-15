@@ -9,6 +9,12 @@ import model.contracts.IRadioTableModel;
 import observer.ObservableSelectRadio;
 import observer.ObserverSelectRadio;
 
+/**
+ * Classe concreta del package Model
+ * Si occupa anche di implementare la logica di business per quanto riguarda la lista delle radio presenti nel database
+ * @author Alex
+ *
+ */
 public class RadioTableModel extends AbstractModel implements IRadioTableModel, ObservableSelectRadio {
 	
 	private int selectedRadioID;

@@ -6,6 +6,12 @@ import factory.FactoryObservable;
 import model.contracts.ILoginModel;
 import view.contracts.ILoginView;
 
+/**
+ * Classe concreta del package Controller
+ * Si occupa anche di creare e gestire la connessione tra il model e la view per quanto riguarda la fase di login
+ * @author Alex
+ *
+ */
 public class LoginController extends AbstractController implements ILoginController {
 
 	private ILoginModel model;

@@ -14,6 +14,12 @@ import model.contracts.IUserModel;
 import observer.ObservableSell;
 import observer.ObserverSell;
 
+/**
+ * Classe concreta del package Model
+ * Si occupa anche di implementare la logica di business per quanto riguarda la fase di vendita
+ * @author Alex
+ *
+ */
 public class SellModel extends AbstractModel implements ISellModel, ObservableSell {
 
 	private IUserModel user;

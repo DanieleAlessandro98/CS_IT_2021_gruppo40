@@ -1,5 +1,8 @@
 package database.services;
 
+/**
+ * Classe che si occupa di interfacciarsi con la relativa classe DAO con lo scopo di acquisire o memorizzare informazioni relative al login
+ */
 import database.DAO.LoginDAO;
 import exception.DatabaseException;
 

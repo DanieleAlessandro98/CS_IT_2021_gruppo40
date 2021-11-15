@@ -5,6 +5,13 @@ import javax.swing.JPanel;
 
 import view.contracts.IView;
 
+/**
+ * Classe astratta della view
+ * Si occupa di mettere a fattor comune (per ogni view concreta) i metodi per la gestione dei vari componenti grafici
+ * Inoltre ogni view avrà una sua differente implementazione di questi ultimi
+ * @author Alex
+ *
+ */
 public abstract class AbstractView extends JPanel implements IView {
 
 	/**

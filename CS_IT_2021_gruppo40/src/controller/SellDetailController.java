@@ -1,5 +1,11 @@
 package controller;
 
+/**
+ * Classe concreta del package Controller
+ * Si occupa di creare e gestire la connessione tra i dati della vendita presenti nel model, e la visualizzazione di questi nella view
+ * @author Alex
+ *
+ */
 import java.util.Date;
 
 import controller.contracts.ISellDetailController;

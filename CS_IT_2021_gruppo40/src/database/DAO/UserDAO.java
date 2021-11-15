@@ -1,5 +1,8 @@
 package database.DAO;
 
+/**
+ * Classe che si occupa di interfacciarsi con il database con lo scopo di acquisire o memorizzare informazioni relative all'utente
+ */
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

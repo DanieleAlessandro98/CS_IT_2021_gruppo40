@@ -1,5 +1,10 @@
 package exception;
 
+/**
+ * Classe che si occupa di gestire e/o catturare eventuali errori/eccezioni che possono presentarsi per quanto riguarda il login
+ * @author Alex
+ *
+ */
 public class LoginException extends Exception {
 
 	/**

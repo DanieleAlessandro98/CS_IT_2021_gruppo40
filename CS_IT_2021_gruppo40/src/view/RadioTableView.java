@@ -18,6 +18,12 @@ import model.contracts.IRadioModel;
 import utility.ParentFrame;
 import view.contracts.IRadioTableView;
 
+/**
+ * Classe concreta del package view
+ * Si occupa anche di implementare tutto ciò che occorre per la visualizzazione grafica delle radio presenti
+ * @author Alex
+ *
+ */
 public class RadioTableView extends AbstractView implements IRadioTableView {
 
 	/**

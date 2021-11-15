@@ -11,6 +11,14 @@ import observer.ObserverLogin;
 import utility.Window;
 import view.contracts.IMainView;
 
+/**
+ * Classe concreta del package Controller
+ * Si occupa di istanziare quelli che sono i controller principali del software (in questo caso solamente la parte di login, e la parte di vendita)
+ * Inoltre una volta fatto ciò, svolge le operazioni principali per il binding dei vari controller (che verrà fatto a cascata)
+ * Si occupa anche di aggiornare lo stato della finestra corrente (passando ad esempio dalla finestra di login, a quella di vendita)
+ * @author Alex
+ *
+ */
 public class MainController extends AbstractController implements ObserverLogin {
 	
 	private IMainView view;

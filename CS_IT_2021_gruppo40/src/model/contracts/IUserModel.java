@@ -1,5 +1,10 @@
 package model.contracts;
 
+/**
+ * Interfaccia del model che si occupa dell'utente
+ * @author Alex
+ *
+ */
 public interface IUserModel extends IModel {
 	public int getID();
 	public String getName();
