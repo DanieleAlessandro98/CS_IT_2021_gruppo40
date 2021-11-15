@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
@@ -96,6 +97,16 @@ public class LoginView extends AbstractView implements ILoginView {
 	@Override
 	public ILoginController getController() {
 		return controller;
+	}
+
+	@Override
+	public void loginSuccessful() {
+		JOptionPane.showMessageDialog(this, "Login avvenuto con successo");
+	}
+
+	@Override
+	public void loginFailed(String errorMessage) {
+		JOptionPane.showMessageDialog(this, errorMessage);
 	}
 
 }

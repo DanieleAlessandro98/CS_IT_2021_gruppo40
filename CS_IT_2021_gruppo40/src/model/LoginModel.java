@@ -3,9 +3,10 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import exception.LoginException;
+import exception.LoginExceptionMessage;
 import observer.ObservableLogin;
 import observer.ObserverLogin;
-import utility.Window;
 
 public class LoginModel implements ILoginModel, ObservableLogin {
 	
@@ -30,20 +31,20 @@ public class LoginModel implements ILoginModel, ObservableLogin {
 	}
 
 	@Override
-	public void login(String username, String password) {
+	public void login(String username, String password) throws LoginException {
 		this.username = username;
 		this.password = password;
 		
 		processLogin();
 	}
 	
-	private void processLogin() {
+	private void processLogin() throws LoginException {
 		userID = LoginManagment.login(username, password);
 		
 		if (userID == -1)
-			System.out.println("Error1 login ....");		// Probabilmente gestito in seguito con exception
-		else
-			notifyObservers();
+			throw new LoginException(LoginExceptionMessage.LOGIN_USER_NOT_FOUND);
+
+		notifyObservers();
 	}
 
 	@Override

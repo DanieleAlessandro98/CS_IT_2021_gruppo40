@@ -1,5 +1,6 @@
 package controller;
 
+import exception.LoginException;
 import model.ILoginModel;
 import observer.Observable;
 import view.ILoginView;
@@ -29,7 +30,12 @@ public class LoginController extends AbstractController implements ILoginControl
 	
 	@Override
 	public void loginActionListener(String username, String password) {
-		model.login(username, password);
+		try {
+			model.login(username, password);
+			view.loginSuccessful();
+		} catch (LoginException e) {
+			view.loginFailed(e.getMessage());
+		}
 	}
 
 }
