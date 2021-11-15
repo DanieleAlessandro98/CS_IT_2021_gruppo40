@@ -1,5 +1,6 @@
 package controller;
 
+import exception.SellException;
 import model.ISellModel;
 import model.SellModel;
 import observer.Observable;
@@ -62,7 +63,12 @@ public class SellController extends AbstractController implements ISellControlle
 	
 	@Override
 	public void insertSellActionListener() {
-		model.insertSell();
+		try {
+			model.insertSell();
+			view.insertSellSuccessful();
+		} catch (SellException e) {
+			view.insertSellFailed(e.getMessage());
+		}
 	}
 
 	@Override

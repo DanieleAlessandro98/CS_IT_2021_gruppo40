@@ -12,4 +12,7 @@ public interface ISellView {
 	
 	public void setController(ISellController controller);
 	public ISellController getController();
+	
+	public void insertSellSuccessful();
+	public void insertSellFailed(String errorMessage);
 }

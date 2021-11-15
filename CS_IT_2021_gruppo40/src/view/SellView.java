@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.border.TitledBorder;
 
 import controller.ISellController;
@@ -117,6 +118,16 @@ public class SellView extends AbstractView implements ISellView {
 			}
 			
 		});
+	}
+
+	@Override
+	public void insertSellSuccessful() {
+		JOptionPane.showMessageDialog(this, "Vendita inserita con successo");
+	}
+
+	@Override
+	public void insertSellFailed(String errorMessage) {
+		JOptionPane.showMessageDialog(this, errorMessage);
 	}
 	
 }

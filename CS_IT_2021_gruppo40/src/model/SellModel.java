@@ -1,5 +1,8 @@
 package model;
 
+import exception.SellException;
+import exception.SellExceptionMessage;
+
 public class SellModel implements ISellModel {
 
 	private IUserModel user;
@@ -32,13 +35,25 @@ public class SellModel implements ISellModel {
 	}
 
 	@Override
-	public void insertSell() {
+	public void insertSell() throws SellException {
+		boolean exception = false;
+		String exceptionMessage = null;
+		
 		if (user.getHalfYearMaxSells() <= UserManagment.getHalfYearCurrentSells(user.getID()))
-			System.out.println("Error1 radio vendibili in un semestre....");				// Probabilmente gestito in seguito con exception
+		{
+			exception = true;
+			exceptionMessage = SellExceptionMessage.SELL_HALF_YEAR_MAX_SELLS;
+		}
 		else if (user.getDayCurrentSells() >= MAX_DAY_SELLS)
-			System.out.println("Error2 radio vendibili in un giorno....");				// Probabilmente gestito in seguito con exception
-		else
-			SellManagment.insertSell(user, radio, sellDetail);
+		{
+			exception = true;
+			exceptionMessage = SellExceptionMessage.SELL_DAY_MAX_SELLS;
+		}
+		
+		if (exception)
+			throw new SellException(exceptionMessage);
+		
+		SellManagment.insertSell(user, radio, sellDetail);
 	}
 
 	@Override
