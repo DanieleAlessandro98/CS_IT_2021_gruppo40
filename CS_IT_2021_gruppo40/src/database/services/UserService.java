@@ -9,6 +9,11 @@ import model.contracts.IUserModel;
 
 public class UserService {
 
+	/**
+	 * Metodo che si relaziona con la relativa classe DAO e gestisce eventuali errori
+	 * @param userID ID dell'utente
+	 * @return Numero di vendite giornaliere
+	 */
 	public static int getDayCurrentSells(int userID) {
 		int result = -1;
 		
@@ -21,6 +26,11 @@ public class UserService {
 		return result;
 	}
 	
+	/**
+	 * Metodo che si relaziona con la relativa classe DAO e gestisce eventuali errori
+	 * @param userID ID dell'utente
+	 * @return Numero di vendite del semestre
+	 */
 	public static int getHalfYearCurrentSells(int userID) {
 		int result = -1;
 
@@ -33,6 +43,11 @@ public class UserService {
 		return result;
 	}
 	
+	/**
+	 * Metodo che si relaziona con la relativa classe DAO e gestisce eventuali errori
+	 * @param userID ID dell'utente selezionato
+	 * @return Dati dell'utente
+	 */
 	public static IUserModel getData(int userID) {
 		IUserModel result = null;
 		

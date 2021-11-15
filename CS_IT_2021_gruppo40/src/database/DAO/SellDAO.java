@@ -17,6 +17,13 @@ import utility.DateFormat;
 
 public class SellDAO {
 	
+	/**
+	 * Metodo che si relazione con il database andando a memorizzare la vendita
+	 * @param user Dati dell'utente
+	 * @param radio Radio selezionata
+	 * @param sellDetail Dettagli della vendita
+	 * @throws DatabaseException
+	 */
 	public static void insertSell(IUserModel user, IRadioModel radio, ISellDetailModel sellDetail) throws DatabaseException {
 		String query = "INSERT INTO Sells (num_radio, date, price, user_id, radio_id) VALUES (?, ?, ?, ?, ?);";
 		

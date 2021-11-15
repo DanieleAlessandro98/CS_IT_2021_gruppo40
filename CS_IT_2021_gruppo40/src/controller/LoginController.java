@@ -24,17 +24,32 @@ public class LoginController extends AbstractController implements ILoginControl
 		this.view = view;
 	}
 	
+	/**
+	 * Metodo che si occupa di collegare il controller con la view
+	 */
 	@Override
 	public void bindView() {
 		view.setController(this);
 	}
 	
+	/**
+	 * Metodo che si occupa di collegare il controller con l'observer
+	 */
 	@Override
 	public void bindObserver() {
 		// TODO Auto-generated method stub
 		
 	}
 	
+	/**
+	 * Metodo che gestisce l'action lister del login (il button di login) a seguito dell'interazione con l'utente
+	 * Viene gestito dal modello
+	 * Il controller si occupa di gestire un'eventuale eccezione nel caso il login fallisca
+	 * 
+	 * @param username Username ottenuto in input dall'utente (e ricevuto dalla view)
+	 *  @param password Password ottenuta in input dall'utente (e ricevuta dalla view)
+	 * 
+	 */
 	@Override
 	public void loginActionListener(String username, String password) {
 		try {

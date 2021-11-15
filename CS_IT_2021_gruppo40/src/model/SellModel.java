@@ -49,6 +49,11 @@ public class SellModel extends AbstractModel implements ISellModel, ObservableSe
 		return sellDetail;
 	}
 
+	/**
+	 * Metodo che applica la logica di business della vendita a seguito dell'interazione con l'utente
+	 * Il controller verrà notificato in caso di errore (ad esmepio superato i limiti di vendita)
+	 * 
+	 */
 	@Override
 	public void insertSell() throws SellException {
 		boolean exception = false;

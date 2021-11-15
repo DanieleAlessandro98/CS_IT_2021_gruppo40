@@ -15,6 +15,13 @@ import utility.Hash;
 
 public class LoginDAO {
 
+	/**
+	 * Metodo che si relazione con il database andando a cercare utenti con quei dati identificativi
+	 * @param username Username dell'utente dato in input
+	 * @param password Password dell'utente dato in input
+	 * @return ID dell'utente
+	 * @throws DatabaseException
+	 */
 	public static int login(String username, String password) throws DatabaseException {
 		String query = "SELECT \r\n" + 
 				"    id\r\n" + 

@@ -46,6 +46,9 @@ public class RadioView extends AbstractView implements IRadioView {
 		setEditableStatus(false);
 	}
 	
+	/**
+	 * Metodo che si occupa di inizializzare le proprietà del componente grafico
+	 */
 	@Override
 	public void initProperty() {
 		this.setLayout(null);
@@ -53,6 +56,9 @@ public class RadioView extends AbstractView implements IRadioView {
 		this.setBorder(new TitledBorder(null, "Radio", TitledBorder.LEADING, TitledBorder.TOP, null, Color.BLACK));
 	}
 	
+	/**
+	 * Metodo che si occupa di istanziare gli elementi grafici
+	 */
 	@Override
 	public void initComponents() {
 		brand = new JTextField();
@@ -94,6 +100,9 @@ public class RadioView extends AbstractView implements IRadioView {
 		this.add(antennaLabel);
 	}
 	
+	/**
+	 * Metodo astratto che si occupa di aggiungere gli elementi grafici al componente padre
+	 */
 	@Override
 	public void addComponents() {
 		this.add(brand);
@@ -104,6 +113,9 @@ public class RadioView extends AbstractView implements IRadioView {
 		this.add(antenna);
 	}
 
+	/**
+	 * Metodo che si occupa di posizionare gli elementi grafici all'interno del componente padre
+	 */
 	@Override
 	public void setPositionComponents() {
 		brand.setBounds(12, 46, 100, 20);
@@ -114,16 +126,25 @@ public class RadioView extends AbstractView implements IRadioView {
 		antenna.setBounds(152, 136, 100, 20);
 	}
 
+	/**
+	 * Metodo che associa il corrispettivo controller
+	 */
 	@Override
 	public void setController(IRadioController controller) {
 		this.controller = controller;
 	}
 
+	/**
+	 * Metodo che restituisce il corrispettivo controller
+	 */
 	@Override
 	public IRadioController getController() {
 		return controller;
 	}
 
+	/**
+	 * Metodo che aggiorna i dati della radio selezionata
+	 */
 	@Override
 	public void updateRadio(IRadioModel radio) {
 		brand.setText(String.valueOf(radio.getBrand()));
@@ -134,6 +155,10 @@ public class RadioView extends AbstractView implements IRadioView {
 		antenna.setText(radio.getAntenna());
 	}
 	
+	/**
+	 * Metodo che setta lo status che devono avere i componenti
+	 * @param status Status dei componenti
+	 */
 	private void setEditableStatus(boolean status) {
 		brand.setEditable(status);
 		type.setEditable(status);

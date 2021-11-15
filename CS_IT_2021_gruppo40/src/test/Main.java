@@ -7,6 +7,10 @@ package test;
  */
 public class Main {
 
+	/**
+	 * Starting point
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		Runnable runnable = new Runnable();
 		

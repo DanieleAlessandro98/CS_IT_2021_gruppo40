@@ -25,27 +25,48 @@ public class SellDetailController extends AbstractController implements ISellDet
 		this.view = view;
 	}
 
+	/**
+	 * Metodo che effettua il binding tra il controller corrente e la propria vista di interesse
+	 */
 	@Override
 	public void bindView() {
 		view.setController(this);
 	}
 
+	/**
+	 * Metodo che effettua il binding tra il controller corrente e gli observer di interesse
+	 */
 	@Override
 	public void bindObserver() {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/**
+	 * Metodo che gestisce l'action lister dell'inserimento del dato "numero di radio vendute" a seguito dell'interazione con l'utente
+	 * 
+	 * @param numRadio Numero delle radio vendute
+	 */
 	@Override
 	public void setNumRadioActionListener(int numRadio) {
 		model.setNumRadio(numRadio);
 	}
 
+	/**
+	 * Metodo che gestisce l'action lister dell'inserimento del dato "data di vendita" a seguito dell'interazione con l'utente
+	 * 
+	 * @param date Data della vendita
+	 */
 	@Override
 	public void setDateActionListener(Date date) {
 		model.setDate(date);
 	}
 
+	/**
+	 * Metodo che gestisce l'action lister dell'inserimento del dato "prezzo di vendita" a seguito dell'interazione con l'utente
+	 * 
+	 * @param price Prezzo della vendita
+	 */
 	@Override
 	public void setPriceActionListener(double price) {
 		model.setPrice(price);

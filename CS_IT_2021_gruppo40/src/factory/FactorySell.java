@@ -20,6 +20,13 @@ public class FactorySell {
 
 	public FactorySell() {}
 	
+	/**
+	 * Metodo che restituisce il corrispettivo controller inizializzato
+	 * @param observable Istanza di FactoryObservable di AbstractController
+	 * @param view Istanza di ISellView inizializzata all'avvio del software
+	 * @param window Finestra del controller che si vuole inizializzare
+	 * @return Controller inizializzato
+	 */
 	public IController getController(FactoryObservable observable, ISellView view, WindowsSell window) {
 		IController result = null;
 		

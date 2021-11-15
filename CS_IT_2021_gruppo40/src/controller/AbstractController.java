@@ -18,9 +18,15 @@ public abstract class AbstractController implements IController {
 		this.observable = observable;
 	}
 	
+	/**
+	 * Metodo astratto che si occuperà di collegare il controller con la corrispettiva view
+	 */
 	@Override
 	abstract public void bindView();
 	
+	/**
+	 * Metodo astratto che si occuperà di collegare il controller con il corrispettivo observer
+	 */
 	@Override
 	abstract public void bindObserver();
 }

@@ -46,6 +46,9 @@ public class LoginView extends AbstractView implements ILoginView {
 		initActionListener();
 	}
 	
+	/**
+	 * Associa gli action lister ai vari elementi grafici e lo associa al controller
+	 */
 	private void initActionListener() {
 		btnLogin.addActionListener(new ActionListener() {
 
@@ -57,6 +60,9 @@ public class LoginView extends AbstractView implements ILoginView {
 		});
 	}
 	
+	/**
+	 * Metodo che si occupa di inizializzare le proprietà del componente grafico
+	 */
 	@Override
 	public void initProperty() {
 		this.setLayout(null);
@@ -64,6 +70,9 @@ public class LoginView extends AbstractView implements ILoginView {
 		this.setBorder(new TitledBorder(null, "Login", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 	}
 
+	/**
+	 * Metodo che si occupa di istanziare gli elementi grafici
+	 */
 	@Override
 	public void initComponents() {
 		usernameField = new JTextField();
@@ -82,6 +91,9 @@ public class LoginView extends AbstractView implements ILoginView {
 		this.add(passwordLabel);
 	}
 
+	/**
+	 * Metodo astratto che si occupa di aggiungere gli elementi grafici al componente padre
+	 */
 	@Override
 	public void addComponents() {
 		this.add(usernameField);
@@ -89,6 +101,9 @@ public class LoginView extends AbstractView implements ILoginView {
 		this.add(btnLogin);
 	}
 
+	/**
+	 * Metodo che si occupa di posizionare gli elementi grafici all'interno del componente padre
+	 */
 	@Override
 	public void setPositionComponents() {
 		usernameField.setBounds(12, 42, 100, 20);
@@ -96,21 +111,33 @@ public class LoginView extends AbstractView implements ILoginView {
 		btnLogin.setBounds(12, 141, 100, 20);
 	}
 
+	/**
+	 * Metodo che associa il corrispettivo controller
+	 */
 	@Override
 	public void setController(ILoginController controller) {
 		this.controller = controller;
 	}
 
+	/**
+	 * Metodo che restituisce il corrispettivo controller
+	 */
 	@Override
 	public ILoginController getController() {
 		return controller;
 	}
 
+	/**
+	 * Metodo che notifica l'utente del login avvenuto con successo
+	 */
 	@Override
 	public void loginSuccessful() {
 		JOptionPane.showMessageDialog(this, "Login avvenuto con successo");
 	}
 
+	/**
+	 * Metodo che notifica l'utente del login fallito ( e ne specifica il messaggio)
+	 */
 	@Override
 	public void loginFailed(String errorMessage) {
 		JOptionPane.showMessageDialog(this, errorMessage);

@@ -49,6 +49,9 @@ public class SellView extends AbstractView implements ISellView {
 		initActionListener();
 	}
 	
+	/**
+	 * Metodo che si occupa di inizializzare le proprietà del componente grafico
+	 */
 	@Override
 	public void initProperty() {
 		this.setLayout(null);
@@ -56,6 +59,9 @@ public class SellView extends AbstractView implements ISellView {
 		this.setBorder(new TitledBorder(null, "Gestione nuova vendita", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 	}
 
+	/**
+	 * Metodo che si occupa di istanziare gli elementi grafici
+	 */
 	@Override
 	public void initComponents() {
 		userView = new UserView();
@@ -67,6 +73,9 @@ public class SellView extends AbstractView implements ISellView {
 		btnInsertSell.setSize(140, 25);
 	}
 
+	/**
+	 * Metodo astratto che si occupa di aggiungere gli elementi grafici al componente padre
+	 */
 	@Override
 	public void addComponents() {
 		this.add(radioTableView.getView());
@@ -77,6 +86,9 @@ public class SellView extends AbstractView implements ISellView {
 		this.add(btnInsertSell);
 	}
 
+	/**
+	 * Metodo che si occupa di posizionare gli elementi grafici all'interno del componente padre
+	 */
 	@Override
 	public void setPositionComponents() {		
 		int i = 0;
@@ -89,36 +101,57 @@ public class SellView extends AbstractView implements ISellView {
 		btnInsertSell.setLocation(100, 565);
 	}
 
+	/**
+	 * Restituisce la view dell'utente
+	 */
 	@Override
 	public JComponent getUserView() {
 		return userView.getView();
 	}
 
+	/**
+	 * Restituisce la view dei dettagli vendita
+	 */
 	@Override
 	public JComponent getSellDetailView() {
 		return sellDetailView.getView();
 	}
 
+	/**
+	 * Restituisce la view della radio
+	 */
 	@Override
 	public JComponent getRadioView() {
 		return radioView.getView();
 	}
 
+	/**
+	 * Restituisce la view delle radio
+	 */
 	@Override
 	public JComponent getRadioTableView() {
 		return radioTableView.getView();
 	}
 
+	/**
+	 * Metodo che associa il corrispettivo controller
+	 */
 	@Override
 	public void setController(ISellController controller) {
 		this.controller = controller;
 	}
 
+	/**
+	 * Metodo che restituisce il corrispettivo controller
+	 */
 	@Override
 	public ISellController getController() {
 		return controller;
 	}
 	
+	/**
+	 * Associa gli action lister ai vari elementi grafici e lo associa al controller
+	 */
 	private void initActionListener() {
 		btnInsertSell.addActionListener(new ActionListener() {
 
@@ -130,11 +163,17 @@ public class SellView extends AbstractView implements ISellView {
 		});
 	}
 
+	/**
+	 * Notifica l'utente dell'inserimento avenuto con successo della vendita
+	 */
 	@Override
 	public void insertSellSuccessful() {
 		JOptionPane.showMessageDialog(this, "Vendita inserita con successo");
 	}
 
+	/**
+	 * Notifica l'utente del fallimento della vendita
+	 */
 	@Override
 	public void insertSellFailed(String errorMessage) {
 		JOptionPane.showMessageDialog(this, errorMessage);

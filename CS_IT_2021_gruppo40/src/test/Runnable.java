@@ -27,11 +27,17 @@ public class Runnable {
 		mainController = new MainController(observable, mainView);
 	}
 	
+	/**
+	 * Avvia il processo (che verrà fatto a catena) per l'associazione della view e degli observer
+	 */
 	public void start() {
 		mainController.bindView();
 		mainController.bindObserver();
 	}
 	
+	/**
+	 * Avvia il processo di visualizzazione di Swing
+	 */
 	public void startSwing() {
 		JFrame frame = new JFrame("Vendita Radio");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -64,12 +64,18 @@ public class RadioTableView extends AbstractView implements IRadioTableView {
 		initActionListener();
 	}
 	
+	/**
+	 * Metodo che si occupa di inizializzare le proprietà del componente grafico
+	 */
 	@Override
 	public void initProperty() {
 		this.setLayout(null);
 		this.setBounds(10, 10, 140, 25);
 	}
 
+	/**
+	 * Metodo che si occupa di istanziare gli elementi grafici
+	 */
 	@Override
 	public void initComponents() {
 		radioTableDialog = new JDialog(ParentFrame.findParentFrame(this));
@@ -86,16 +92,25 @@ public class RadioTableView extends AbstractView implements IRadioTableView {
 		btnSelectRadio.setSize(140, 25);
 	}
 
+	/**
+	 * Metodo astratto che si occupa di aggiungere gli elementi grafici al componente padre
+	 */
 	@Override
 	public void addComponents() {
 		this.add(btnSelectRadio);
 	}
 
+	/**
+	 * Metodo che si occupa di posizionare gli elementi grafici all'interno del componente padre
+	 */
 	@Override
 	public void setPositionComponents() {
 		btnSelectRadio.setLocation(0, 0);
 	}
 	
+	/**
+	 * Metodo che setta le proprietà del dialog contenete la tabella con le radio
+	 */
 	private void initDialogProperty() {
 		radioTableDialog.add(radioTable);
 		radioTableDialog.setPreferredSize(new Dimension(300, 300));
@@ -105,6 +120,9 @@ public class RadioTableView extends AbstractView implements IRadioTableView {
 		radioTableDialog.setVisible(false);
 	}
 
+	/**
+	 * Metodo che associa il corrispettivo controller
+	 */
 	@Override
 	public void setController(IRadioTableController controller) {
 		this.controller = controller;
@@ -112,11 +130,17 @@ public class RadioTableView extends AbstractView implements IRadioTableView {
 		initRadioTable();		// inizializza la tabella con i dati delle radio (presi dal controller -> model)
 	}
 
+	/**
+	 * Metodo che restituisce il corrispettivo controller
+	 */
 	@Override
 	public IRadioTableController getController() {
 		return controller;
 	}
 	
+	/**
+	 * Associa gli action lister ai vari elementi grafici e lo associa al controller
+	 */
 	private void initActionListener() {
 		btnSelectRadio.addActionListener(new ActionListener() {
 
@@ -151,6 +175,9 @@ public class RadioTableView extends AbstractView implements IRadioTableView {
 		});
 	}
 
+	/**
+	 * Metodo che inizializza i valor idella tabella con le radio
+	 */
 	@Override
 	public void initRadioTable(List<IRadioModel> radios) {
 		for (IRadioModel radio : radios) {
@@ -166,11 +193,17 @@ public class RadioTableView extends AbstractView implements IRadioTableView {
 		}
 	}
 
+	/**
+	 * Metodo che visualizza o nasconde il dialog
+	 */
 	@Override
 	public void setTableVisibility(boolean status) {
 		radioTableDialog.setVisible(status);
 	}
 	
+	/**
+	 * Metodo che avvia l'inizializzazione delle radio
+	 */
 	private void initRadioTable() {
 		controller.initRadioTable();
 	}

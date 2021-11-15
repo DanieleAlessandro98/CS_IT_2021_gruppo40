@@ -45,6 +45,9 @@ public class UserView extends AbstractView implements IUserView {
 		setEditableStatus(false);
 	}
 
+	/**
+	 * Metodo che si occupa di inizializzare le proprietà del componente grafico
+	 */
 	@Override
 	public void initProperty() {
 		this.setLayout(null);
@@ -52,6 +55,9 @@ public class UserView extends AbstractView implements IUserView {
 		this.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Dipendente", TitledBorder.LEADING, TitledBorder.TOP, null, Color.BLACK));
 	}
 
+	/**
+	 * Metodo che si occupa di istanziare gli elementi grafici
+	 */
 	@Override
 	public void initComponents() {
 		name = new JTextField();
@@ -81,6 +87,9 @@ public class UserView extends AbstractView implements IUserView {
 		this.add(maxHalfYearSellLabel);
 	}
 
+	/**
+	 * Metodo astratto che si occupa di aggiungere gli elementi grafici al componente padre
+	 */
 	@Override
 	public void addComponents() {
 		this.add(name);
@@ -89,6 +98,9 @@ public class UserView extends AbstractView implements IUserView {
 		this.add(maxHalfYearSell);
 	}
 
+	/**
+	 * Metodo che si occupa di posizionare gli elementi grafici all'interno del componente padre
+	 */
 	@Override
 	public void setPositionComponents() {
 		name.setBounds(12, 42, 100, 20);
@@ -97,16 +109,25 @@ public class UserView extends AbstractView implements IUserView {
 		maxHalfYearSell.setBounds(152, 42, 100, 20);
 	}
 
+	/**
+	 * Metodo che associa il corrispettivo controller
+	 */
 	@Override
 	public void setController(IUserController controller) {
 		this.controller = controller;
 	}
 
+	/**
+	 * Metodo che restituisce il corrispettivo controller
+	 */
 	@Override
 	public IUserController getController() {
 		return controller;
 	}
 
+	/**
+	 * Aggirna i dati dell'utente
+	 */
 	@Override
 	public void updateUser(IUserModel user) {
 		name.setText(user.getName());
@@ -115,6 +136,10 @@ public class UserView extends AbstractView implements IUserView {
 		maxHalfYearSell.setText(String.valueOf(user.getHalfYearMaxSells()));
 	}
 	
+	/**
+	 * Metodo che setta lo status che devono avere i componenti
+	 * @param status Status dei componenti
+	 */
 	private void setEditableStatus(boolean status) {
 		name.setEditable(status);
 		surname.setEditable(status);

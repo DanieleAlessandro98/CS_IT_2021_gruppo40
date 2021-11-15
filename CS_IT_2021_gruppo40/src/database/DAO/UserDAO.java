@@ -19,6 +19,12 @@ import utility.DateFormat;
 
 public class UserDAO {
 
+	/**
+	 * Metodo che si relazione con il database andando ad acquisire le vendite giornaliere dell'utente
+	 * @param userID ID dell'utente
+	 * @return Numero di vendite giornaliere
+	 * @throws DatabaseException
+	 */
 	public static int getDayCurrentSells(int userID) throws DatabaseException {
 		String query = "SELECT \r\n" + 
 				"    COUNT(user_id) AS day_sells\r\n" + 
@@ -63,6 +69,12 @@ public class UserDAO {
 		return result;
 	}
 	
+	/**
+	 * Metodo che si relazione con il database andando ad acquisire le vendite semestrali dell'utente
+	 * @param userID ID dell'utente
+	 * @return Numero di vendite del semestre
+	 * @throws DatabaseException
+	 */
 	public static int getHalfYearCurrentSells(int userID) throws DatabaseException {
 		String query = "SELECT \r\n" + 
 				"    COUNT(user_id) AS half_year_sells\r\n" + 
@@ -112,6 +124,12 @@ public class UserDAO {
 		return result;
 	}
 	
+	/**
+	 * Metodo che si relazione con il database andando ad ottenere i dati dell'utente autentificato
+	 * @param userID ID dell'utente selezionato
+	 * @return Dati dell'utente
+	 * @throws DatabaseException
+	 */
 	public static IUserModel getData(int userID) throws DatabaseException {
 		String query = "SELECT \r\n" + 
 				"    ud.user_id,\r\n" + 

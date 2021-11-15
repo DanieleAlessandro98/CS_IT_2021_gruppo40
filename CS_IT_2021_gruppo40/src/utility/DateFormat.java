@@ -15,14 +15,30 @@ import java.util.GregorianCalendar;
  */
 public class DateFormat {
 
+	/**
+	 * Converte il formato della data da java.util.Date a java.sql.Date
+	 * Utile per memorizzare sulla base di dati la data inserita
+	 * @param utilDate Data inserita
+	 * @return Data in formato SQL
+	 */
 	public static java.sql.Date convertToSQLFormat(java.util.Date utilDate) {
 		return new java.sql.Date(utilDate.getTime());
 	}
 	
+	/**
+	 * Converte il formato della data da Date a Timestamp
+	 * Utile per memorizzare sulla base di dati oltre che il dd-mm-yyyy ma anche l'ora ed il minuto
+	 * @param utilDate Data inserita
+	 * @return Data in formato timestamp
+	 */
 	public static Timestamp convertTimestampToSQLFormat(java.util.Date utilDate) {
 		return new Timestamp(utilDate.getTime());
 	}
 	
+	/**
+	 * Serve per ottenere il range di date da controllare per conteggiare il numero di vendite effettuato in un semestre
+	 * @return Range delle due date
+	 */
 	public static ArrayList<Date> getHalfYearRange() {
 		ArrayList<Date> halfYearRange = new ArrayList<>();
 		
@@ -46,6 +62,12 @@ public class DateFormat {
 		return halfYearRange;
 	}
 	
+	/**
+	 * Converte una stringa in formato data
+	 * @param dateString Stringa inserita
+	 * @return Data inserita
+	 * @throws Exception
+	 */
 	public static Date valueOf(String dateString) throws Exception {
 		Date date = null;
 		try {

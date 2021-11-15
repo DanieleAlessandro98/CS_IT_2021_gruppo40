@@ -24,16 +24,27 @@ public class RadioController extends AbstractController implements IRadioControl
 		this.view = view;
 	}
 
+	/**
+	 * Metodo che effettua il binding tra il controller corrente e la propria vista di interesse
+	 */
 	@Override
 	public void bindView() {
 		view.setController(this);
 	}
 
+	/**
+	 * Metodo che effettua il binding tra il controller corrente e gli observer di interesse
+	 */
 	@Override
 	public void bindObserver() {
 		observable.addObserverSelectRadio(this);
 	}
 
+	/**
+	 * Metodo che gestisce l'aggiornamento dello stato della radio selezionata a seguito della selezione della radio che si è venduta
+	 * 
+	 * @param radioID ID della radio ottenuta a seguito della selezione della radio che si è venduta
+	 */
 	@Override
 	public void updateSelectRadio(int radioID) {
 		model.setData(radioID);

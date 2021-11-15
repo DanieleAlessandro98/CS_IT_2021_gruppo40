@@ -39,38 +39,59 @@ public class MainView extends AbstractView implements IMainView {
 		setPositionComponents();
 	}
 	
+	/**
+	 * Metodo che si occupa di inizializzare le proprietà del componente grafico
+	 */
 	@Override
 	public void initProperty() {
 		this.setLayout(cardLayout);
 	}
 
+	/**
+	 * Metodo che si occupa di istanziare gli elementi grafici
+	 */
 	@Override
 	public void initComponents() {
 		sellView = new SellView();
 		loginView = new LoginView();
 	}
 
+	/**
+	 * Metodo astratto che si occupa di aggiungere gli elementi grafici al componente padre
+	 */
 	@Override
 	public void addComponents() {
 		this.add(sellView.getView(), Window.SELL.toString());
 		this.add(loginView.getView(), Window.LOGIN.toString());
 	}
 
+	/**
+	 * Metodo astratto che si occupa di posizionare gli elementi grafici all'interno del componente padre
+	 */
 	@Override
 	public void setPositionComponents() {
 		cardLayout.show(this, Window.LOGIN.toString());	// Finestra all'apertura del software	
 	}
 
+	/**
+	 * Metodo che restituisce la view della vendita
+	 */
 	@Override
 	public JComponent getSellView() {
 		return sellView.getView();
 	}
 
+	/**
+	 * Metodo che restituisce la view del login
+	 */
 	@Override
 	public JComponent getLoginView() {
 		return loginView.getView();
 	}
 
+	/**
+	 * Metodo che aggiorna la finestra a seguito del login
+	 */
 	@Override
 	public void updateWindow(Window newWindow) {
 		cardLayout.show(this, newWindow.toString());

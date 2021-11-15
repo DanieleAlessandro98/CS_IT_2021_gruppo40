@@ -47,6 +47,9 @@ public class SellDetailView extends AbstractView implements ISellDetailView {
 		initActionListener();
 	}
 
+	/**
+	 * Metodo che si occupa di inizializzare le proprietà del componente grafico
+	 */
 	@Override
 	public void initProperty() {
 		this.setLayout(null);
@@ -54,6 +57,9 @@ public class SellDetailView extends AbstractView implements ISellDetailView {
 		this.setBorder(new TitledBorder(null, "Dettagli Vendita", TitledBorder.LEADING, TitledBorder.TOP, null, Color.BLACK));
 	}
 
+	/**
+	 * Metodo che si occupa di istanziare gli elementi grafici
+	 */
 	@Override
 	public void initComponents() {
 		numRadio = new JTextField();
@@ -77,6 +83,9 @@ public class SellDetailView extends AbstractView implements ISellDetailView {
 		this.add(priceLabel);
 	}
 
+	/**
+	 * Metodo astratto che si occupa di aggiungere gli elementi grafici al componente padre
+	 */
 	@Override
 	public void addComponents() {
 		this.add(numRadio);
@@ -84,6 +93,9 @@ public class SellDetailView extends AbstractView implements ISellDetailView {
 		this.add(price);
 	}
 
+	/**
+	 * Metodo che si occupa di posizionare gli elementi grafici all'interno del componente padre
+	 */
 	@Override
 	public void setPositionComponents() {
 		numRadio.setBounds(152, 47, 100, 20);
@@ -91,16 +103,25 @@ public class SellDetailView extends AbstractView implements ISellDetailView {
 		price.setBounds(12, 90, 100, 20);
 	}
 
+	/**
+	 * Metodo che associa il corrispettivo controller
+	 */
 	@Override
 	public void setController(ISellDetailController controller) {
 		this.controller = controller;
 	}
 
+	/**
+	 * Metodo che restituisce il corrispettivo controller
+	 */
 	@Override
 	public ISellDetailController getController() {
 		return controller;
 	}
 	
+	/**
+	 * Associa gli action lister ai vari elementi grafici e lo associa al controller
+	 */
 	private void initActionListener() {
 		numRadio.setInputVerifier(new InputVerifier() {
 
@@ -163,6 +184,9 @@ public class SellDetailView extends AbstractView implements ISellDetailView {
 		});
 	}
 	
+	/**
+	 * Metodo che notifica l'utente dell'errato inserimento di un valore
+	 */
 	private void ShowWrongFormat() {
 		JOptionPane.showMessageDialog(this, "Formato inserito errato.");
 	}

@@ -25,23 +25,38 @@ public class UserController extends AbstractController implements IUserControlle
 		this.view = view;
 	}
 
+	/**
+	 * Metodo che effettua il binding tra il controller corrente e la propria vista di interesse
+	 */
 	@Override
 	public void bindView() {
 		view.setController(this);
 	}
 
+	/**
+	 * Metodo che effettua il binding tra il controller corrente e gli observer di interesse
+	 */
 	@Override
 	public void bindObserver() {
 		observable.addObserverLogin(this);
 		observable.addObserverSell(this);
 	}
 
+	/**
+	 * Metodo che gestisce l'aggiornamento dello stato dell'utente corrente
+	 * 
+	 * @param userID ID dell'utente ottenuto a seguito del login
+	 */
 	@Override
 	public void updateLogin(int userID) {
 		model.setData(userID);
 		view.updateUser(model);
 	}
 
+	/**
+	 * Metodo che gestisce l'aggiornamento dello stato dell'utente corrente
+	 * 
+	 */
 	@Override
 	public void updateSell() {
 		model.setDayCurrentSells();

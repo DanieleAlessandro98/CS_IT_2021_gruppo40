@@ -44,11 +44,17 @@ public class SellController extends AbstractController implements ISellControlle
 		initControllers();
 	}
 	
+	/**
+	 * Metodo che gestisce l'inizializzazione di quelli che sono i controller associati alla vendita e li aggiunge alla lista usando il factory
+	 */
 	private void initControllers() {
 		for (WindowsSell window : WindowsSell.values())
 			controllers.add(factorySell.getController(observable, view, window));
 	}
 
+	/**
+	 * Metodo che richiama per ogni controller della vendita, il relativo metodo per associarlo con la view
+	 */
 	@Override
 	public void bindView() {
 		view.setController(this);
@@ -57,6 +63,9 @@ public class SellController extends AbstractController implements ISellControlle
 			controller.bindView();
 	}
 
+	/**
+	 * Metodo che richiama per ogni controller della vendita, il relativo metodo per associarlo con gli observer
+	 */
 	@Override
 	public void bindObserver() {
 		observable.addObserverUser(this);
@@ -67,6 +76,9 @@ public class SellController extends AbstractController implements ISellControlle
 			controller.bindObserver();
 	}
 	
+	/**
+	 * Metodo che gestisce l'action lister dell'insertimento della vendita (il button) a seguito dell'interazione con l'utente
+	 */
 	@Override
 	public void insertSellActionListener() {
 		try {
@@ -77,16 +89,25 @@ public class SellController extends AbstractController implements ISellControlle
 		}
 	}
 
+	/**
+	 * Metodo che gestire l'aggiornamento dello stato dell'utente corrente
+	 */
 	@Override
 	public void updateUser(Object user) {
 		model.setUser(user);
 	}
 
+	/**
+	 * Metodo che gestire l'aggiornamento dello stato della radio corrente
+	 */
 	@Override
 	public void updateRadio(Object radio) {
 		model.setRadio(radio);
 	}
 
+	/**
+	 * Metodo che gestire l'aggiornamento dello stato dei dettagli della vendita
+	 */
 	@Override
 	public void updateSellDetail(Object sellDetail) {
 		model.setSellDetail(sellDetail);

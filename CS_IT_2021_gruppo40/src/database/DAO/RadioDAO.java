@@ -20,6 +20,11 @@ import model.contracts.IRadioModel;
 
 public class RadioDAO {
 
+	/**
+	 * Metodo che si relazione con il database andando ad ottenere i dati delle radio presenti
+	 * @return Lista contenente i dati di tutte le radio
+	 * @throws DatabaseException
+	 */
 	public static List<IRadioModel> getRadiosData() throws DatabaseException {
 		String query = "SELECT \r\n" + 
 				"    r.id,\r\n" + 
@@ -76,6 +81,12 @@ public class RadioDAO {
 		return result;
 	}
 	
+	/**
+	 * Metodo che si relazione con il database andando ad ottenere i dati della radio selezionata
+	 * @param radioID ID della radio selezionata
+	 * @return Dati della radio
+	 * @throws DatabaseException
+	 */
 	public static IRadioModel getData(int radioID) throws DatabaseException {
 		String query = "SELECT \r\n" + 
 				"    r.id,\r\n" + 

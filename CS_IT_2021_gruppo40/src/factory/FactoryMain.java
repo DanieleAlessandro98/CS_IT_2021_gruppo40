@@ -16,6 +16,13 @@ public class FactoryMain {
 
 	public FactoryMain() {}
 	
+	/**
+	 * Metodo che restituisce il corrispettivo controller inizializzato
+	 * @param observable Istanza di FactoryObservable di AbstractController
+	 * @param view Istanza di IMainView inizializzata allo startting point
+	 * @param window Finestra del controller che si vuole inizializzare
+	 * @return Controller inizializzato
+	 */
 	public IController getController(FactoryObservable observable, IMainView view, WindowsMain window) {
 		IController result = null;
 		

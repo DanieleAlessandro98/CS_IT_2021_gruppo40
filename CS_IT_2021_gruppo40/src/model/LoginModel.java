@@ -38,6 +38,11 @@ public class LoginModel extends AbstractModel implements ILoginModel, Observable
 		processLogin();
 	}
 	
+	/**
+	 * Metodo che applica la logica di business del login a seguito dell'interazione con l'utente
+	 * Il controller verrà notificato in caso di errore (ad esmepio login errato)
+	 * 
+	 */
 	private void processLogin() throws LoginException {
 		setUserID(LoginService.login(username, password));
 		

@@ -11,6 +11,9 @@ import model.contracts.IModel;
  */
 public abstract class AbstractModel implements IModel {
 
+	/**
+	 * Metodo astratto che si occuperà di verificare se i dati presenti per ogni oggetto del model è valido
+	 */
 	@Override
 	abstract public boolean isValidData();
 

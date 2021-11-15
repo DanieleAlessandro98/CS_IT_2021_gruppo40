@@ -11,6 +11,10 @@ import model.contracts.IRadioModel;
 
 public class RadioService {
 
+	/**
+	 * Metodo che si relaziona con la relativa classe DAO e gestisce eventuali errori
+	 * @return Lista contenente i dati di tutte le radio
+	 */
 	public static List<IRadioModel> getRadiosData() {
 		List<IRadioModel> result = null;
 		
@@ -23,6 +27,11 @@ public class RadioService {
 		return result;
 	}
 	
+	/**
+	 * Metodo che si relaziona con la relativa classe DAO e gestisce eventuali errori
+	 * @param radioID ID della radio selezionata
+	 * @return Dati della radio
+	 */
 	public static IRadioModel getData(int radioID) {
 		IRadioModel result = null;
 		
