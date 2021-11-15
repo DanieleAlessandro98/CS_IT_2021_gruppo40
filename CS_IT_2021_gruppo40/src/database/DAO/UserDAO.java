@@ -22,7 +22,7 @@ public class UserDAO {
 				"FROM\r\n" + 
 				"    Sells\r\n" + 
 				"WHERE\r\n" + 
-				"    date = DATE(NOW()) AND user_id = ?;";
+				"    DATE(date) = DATE(NOW()) AND user_id = ?;";
 		
 		int result = 0;
 		
@@ -120,7 +120,7 @@ public class UserDAO {
 				"    Users_Data ud\r\n" + 
 				"        LEFT JOIN\r\n" + 
 				"    Sells s ON ud.user_id = s.user_id\r\n" + 
-				"        AND s.date = DATE(NOW())\r\n" + 
+				"        AND DATE(s.date) = DATE(NOW())\r\n" + 
 				"WHERE\r\n" + 
 				"    ud.user_id = ?;";
 		

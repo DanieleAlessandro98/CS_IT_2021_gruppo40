@@ -44,7 +44,7 @@ public class DateFormat {
 	public static Date valueOf(String dateString) throws Exception {
 		Date date = null;
 		try {
-			date = new SimpleDateFormat("dd/mm/yyyy HH:mm").parse(dateString);
+			date = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(dateString);
 		} catch (ParseException e) {
 			throw new Exception();
 		}
