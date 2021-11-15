@@ -1,44 +1,50 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import factory.FactoryMain;
+import factory.WindowsMain;
 import observer.Observable;
 import observer.ObserverLogin;
 import utility.Window;
-import view.ILoginView;
 import view.IMainView;
-import view.ISellView;
 
 public class MainController extends AbstractController implements ObserverLogin {
 	
 	private IMainView view;
 	
-	private IController sellController;
-	private IController loginController;
-	
+	private List<IController> controllers;
+	private FactoryMain factoryMain;
+		
 	public MainController(Observable observable, IMainView view) {
 		super(observable);
 		
 		this.view = view;
 		
+		controllers = new ArrayList<>();
+		factoryMain = new FactoryMain();
+		
 		initControllers();
 	}
 	
 	private void initControllers() {
-		sellController = new SellController(observable, (ISellView) view.getSellView());
-		loginController = new LoginController(observable, (ILoginView) view.getLoginView());
+		for (WindowsMain window : WindowsMain.values())
+			controllers.add(factoryMain.getController(observable, view, window));
 	}
 
 	@Override
 	public void bindView() {
-		sellController.bindView();
-		loginController.bindView();
+		for (IController controller : controllers)
+			controller.bindView();
 	}
 
 	@Override
 	public void bindObserver() {
 		observable.addObserverLogin(this);
 		
-		sellController.bindObserver();
-		loginController.bindObserver();
+		for (IController controller : controllers)
+			controller.bindObserver();
 	}
 	
 	@Override
