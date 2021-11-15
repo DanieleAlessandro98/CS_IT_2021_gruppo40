@@ -29,7 +29,7 @@ public class SellDAO {
 			PreparedStatement statement = connection.prepareStatement(query);
 			
 			statement.setInt(1, sellDetail.getNumRadio());
-			statement.setDate(2, DateFormat.convertToSQLFormat(sellDetail.getDate()));
+			statement.setTimestamp(2, DateFormat.convertTimestampToSQLFormat(sellDetail.getDate()));
 			statement.setDouble(3, sellDetail.getPrice());
 			statement.setInt(4, user.getID());
 			statement.setInt(5, radio.getID());

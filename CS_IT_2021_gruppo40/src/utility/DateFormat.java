@@ -1,5 +1,6 @@
 package utility;
 
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -11,6 +12,10 @@ public class DateFormat {
 
 	public static java.sql.Date convertToSQLFormat(java.util.Date utilDate) {
 		return new java.sql.Date(utilDate.getTime());
+	}
+	
+	public static Timestamp convertTimestampToSQLFormat(java.util.Date utilDate) {
+		return new Timestamp(utilDate.getTime());
 	}
 	
 	public static ArrayList<Date> getHalfYearRange() {
