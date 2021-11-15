@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import exception.DatabaseException;
+import exception.DatabaseExceptionMessage;
 import model.Brand;
 import model.IRadioModel;
 import model.RadioModel;
@@ -14,7 +16,7 @@ import model.Type;
 
 public class RadioDAO {
 
-	public static List<IRadioModel> getRadiosData() {
+	public static List<IRadioModel> getRadiosData() throws DatabaseException {
 		String query = "SELECT r.id, r.size, r.color, r.optional, r.antenna, b.name AS brand_name, t.name AS type_name\r\n" + 
 				"FROM Radios r\r\n" + 
 				"JOIN Brands b ON r.brand = b.id\r\n" + 
@@ -22,7 +24,13 @@ public class RadioDAO {
 		
 		List<IRadioModel> result = new ArrayList<>();
 		
-		Connection connection = DBConnection.getConnection();
+		Connection connection = null;
+		try {
+			connection = DBConnection.getConnection();
+		} catch (DatabaseException e1) {
+			e1.printStackTrace();
+			System.exit(0);		// temp
+		}
 		
 		try {
 			PreparedStatement statement = connection.prepareStatement(query);
@@ -40,13 +48,13 @@ public class RadioDAO {
 			}
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new DatabaseException(DatabaseExceptionMessage.DATABASE_QUERY_FAILED);
 		}
 		
 		return result;
 	}
 	
-	public static IRadioModel getData(int radioID) {
+	public static IRadioModel getData(int radioID) throws DatabaseException {
 		String query = "SELECT \r\n" + 
 				"    r.id,\r\n" + 
 				"    r.size,\r\n" + 
@@ -66,7 +74,13 @@ public class RadioDAO {
 		
 		IRadioModel result = null;
 		
-		Connection connection = DBConnection.getConnection();
+		Connection connection = null;
+		try {
+			connection = DBConnection.getConnection();
+		} catch (DatabaseException e1) {
+			e1.printStackTrace();
+			System.exit(0);		// temp
+		}
 		
 		try {
 			PreparedStatement statement = connection.prepareStatement(query);
@@ -85,7 +99,7 @@ public class RadioDAO {
 			}
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new DatabaseException(DatabaseExceptionMessage.DATABASE_QUERY_FAILED);
 		}
 		
 		return result;

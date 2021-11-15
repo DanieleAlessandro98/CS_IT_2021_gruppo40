@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import exception.DatabaseException;
+import exception.DatabaseExceptionMessage;
 import model.IRadioModel;
 import model.ISellDetailModel;
 import model.IUserModel;
@@ -11,10 +13,16 @@ import utility.DateFormat;
 
 public class SellDAO {
 	
-	public static void insertSell(IUserModel user, IRadioModel radio, ISellDetailModel sellDetail) {
+	public static void insertSell(IUserModel user, IRadioModel radio, ISellDetailModel sellDetail) throws DatabaseException {
 		String query = "INSERT INTO Sells (num_radio, date, price, user_id, radio_id) VALUES (?, ?, ?, ?, ?);";
 		
-		Connection connection = DBConnection.getConnection();
+		Connection connection = null;
+		try {
+			connection = DBConnection.getConnection();
+		} catch (DatabaseException e1) {
+			e1.printStackTrace();
+			System.exit(0);		// temp
+		}
 		
 		try {
 			PreparedStatement statement = connection.prepareStatement(query);
@@ -28,7 +36,7 @@ public class SellDAO {
 			statement.execute();
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new DatabaseException(DatabaseExceptionMessage.DATABASE_QUERY_FAILED);
 		}
 	}
 	

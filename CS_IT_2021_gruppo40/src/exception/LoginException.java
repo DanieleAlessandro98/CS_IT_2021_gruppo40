@@ -16,5 +16,4 @@ public class LoginException extends Exception {
 		super(msg);
 	}
 	
-	
 }

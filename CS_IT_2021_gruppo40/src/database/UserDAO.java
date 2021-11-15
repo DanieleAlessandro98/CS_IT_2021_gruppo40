@@ -7,19 +7,27 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
+import exception.DatabaseException;
+import exception.DatabaseExceptionMessage;
 import model.IUserModel;
 import model.UserModel;
 import utility.DateFormat;
 
 public class UserDAO {
 
-	public static int getDayCurrentSells(int userID) {
+	public static int getDayCurrentSells(int userID) throws DatabaseException {
 		String query = "SELECT COUNT(user_id) AS day_sells FROM Sells WHERE date = date(now()) AND user_id = ?;";
 		
 		int result = 0;
 		
-		Connection connection = DBConnection.getConnection();
-
+		Connection connection = null;
+		try {
+			connection = DBConnection.getConnection();
+		} catch (DatabaseException e1) {
+			e1.printStackTrace();
+			System.exit(0);		// temp
+		}
+		
 		try {
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setInt(1, userID);
@@ -32,19 +40,25 @@ public class UserDAO {
 			
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new DatabaseException(DatabaseExceptionMessage.DATABASE_QUERY_FAILED);
 		}
 		
 		return result;
 	}
 	
-	public static int getHalfYearCurrentSells(int userID) {
+	public static int getHalfYearCurrentSells(int userID) throws DatabaseException {
 		String query = "SELECT COUNT(user_id) AS half_year_sells FROM Sells WHERE user_id = ? AND date BETWEEN ? AND ?;";
 		
 		int result = 0;
 		
-		Connection connection = DBConnection.getConnection();
-
+		Connection connection = null;
+		try {
+			connection = DBConnection.getConnection();
+		} catch (DatabaseException e1) {
+			e1.printStackTrace();
+			System.exit(0);		// temp
+		}
+		
 		try {
 			PreparedStatement statement = connection.prepareStatement(query);
 			
@@ -61,13 +75,13 @@ public class UserDAO {
 			
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new DatabaseException(DatabaseExceptionMessage.DATABASE_QUERY_FAILED);
 		}
 		
 		return result;
 	}
 	
-	public static IUserModel getData(int userID) {
+	public static IUserModel getData(int userID) throws DatabaseException {
 		String query = "SELECT \r\n" + 
 				"    ud.user_id,\r\n" + 
 				"    ud.name,\r\n" + 
@@ -84,8 +98,14 @@ public class UserDAO {
 		
 		IUserModel result = null;
 		
-		Connection connection = DBConnection.getConnection();
-
+		Connection connection = null;
+		try {
+			connection = DBConnection.getConnection();
+		} catch (DatabaseException e1) {
+			e1.printStackTrace();
+			System.exit(0);		// temp
+		}
+		
 		try {
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setInt(1, userID);
@@ -103,7 +123,7 @@ public class UserDAO {
 			
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new DatabaseException(DatabaseExceptionMessage.DATABASE_QUERY_FAILED);
 		}
 		
 		return result;
