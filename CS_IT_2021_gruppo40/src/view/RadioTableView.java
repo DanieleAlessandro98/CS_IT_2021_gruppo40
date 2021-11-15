@@ -13,9 +13,10 @@ import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import controller.IRadioTableController;
-import model.IRadioModel;
+import controller.contracts.IRadioTableController;
+import model.contracts.IRadioModel;
 import utility.ParentFrame;
+import view.contracts.IRadioTableView;
 
 public class RadioTableView extends AbstractView implements IRadioTableView {
 

@@ -1,16 +1,17 @@
 package controller;
 
-import model.IRadioModel;
-import observer.Observable;
+import controller.contracts.IRadioController;
+import factory.FactoryObservable;
+import model.contracts.IRadioModel;
 import observer.ObserverSelectRadio;
-import view.IRadioView;
+import view.contracts.IRadioView;
 
 public class RadioController extends AbstractController implements IRadioController, ObserverSelectRadio {
 	
 	private IRadioModel model;
 	private IRadioView view;
 	
-	public RadioController(Observable observable, IRadioView view) {
+	public RadioController(FactoryObservable observable, IRadioView view) {
 		super(observable);
 		
 		this.model = (IRadioModel) observable.getObservableRadio();

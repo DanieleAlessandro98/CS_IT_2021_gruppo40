@@ -5,6 +5,8 @@ import java.awt.CardLayout;
 import javax.swing.JComponent;
 
 import utility.Window;
+import view.contracts.IMainView;
+import view.contracts.IView;
 
 public class MainView extends AbstractView implements IMainView {
 

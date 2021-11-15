@@ -1,7 +1,13 @@
 package model;
 
+import database.services.SellManagment;
+import database.services.UserManagment;
 import exception.SellException;
 import exception.SellExceptionMessage;
+import model.contracts.IRadioModel;
+import model.contracts.ISellDetailModel;
+import model.contracts.ISellModel;
+import model.contracts.IUserModel;
 
 public class SellModel extends AbstractModel implements ISellModel {
 

@@ -1,22 +1,21 @@
 package factory;
 
-import controller.IController;
 import controller.RadioController;
 import controller.RadioTableController;
 import controller.SellDetailController;
 import controller.UserController;
-import observer.Observable;
-import view.IRadioTableView;
-import view.IRadioView;
-import view.ISellDetailView;
-import view.ISellView;
-import view.IUserView;
+import controller.contracts.IController;
+import view.contracts.IRadioTableView;
+import view.contracts.IRadioView;
+import view.contracts.ISellDetailView;
+import view.contracts.ISellView;
+import view.contracts.IUserView;
 
 public class FactorySell {
 
 	public FactorySell() {}
 	
-	public IController getController(Observable observable, ISellView view, WindowsSell window) {
+	public IController getController(FactoryObservable observable, ISellView view, WindowsSell window) {
 		IController result = null;
 		
 		switch (window) {

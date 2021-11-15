@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import model.contracts.ISellDetailModel;
 import observer.ObservableSellDetail;
 import observer.ObserverSellDetail;
 

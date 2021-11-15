@@ -1,16 +1,17 @@
 package controller;
 
-import model.IUserModel;
-import observer.Observable;
+import controller.contracts.IUserController;
+import factory.FactoryObservable;
+import model.contracts.IUserModel;
 import observer.ObserverLogin;
-import view.IUserView;
+import view.contracts.IUserView;
 
 public class UserController extends AbstractController implements IUserController, ObserverLogin {
 	
 	private IUserModel model;
 	private IUserView view;
 	
-	public UserController(Observable observable, IUserView view) {
+	public UserController(FactoryObservable observable, IUserView view) {
 		super(observable);
 		
 		this.model = (IUserModel) observable.getObservableUser();

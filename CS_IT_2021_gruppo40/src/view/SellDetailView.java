@@ -7,8 +7,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
-import controller.ISellDetailController;
+import controller.contracts.ISellDetailController;
 import utility.DateFormat;
+import view.contracts.ISellDetailView;
 
 import java.awt.Color;
 import java.util.Date;

@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import database.services.UserManagment;
+import model.contracts.IUserModel;
 import observer.ObservableUser;
 import observer.ObserverUser;
 

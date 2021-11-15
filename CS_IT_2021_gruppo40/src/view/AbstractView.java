@@ -3,6 +3,8 @@ package view;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
+import view.contracts.IView;
+
 public abstract class AbstractView extends JPanel implements IView {
 
 	/**

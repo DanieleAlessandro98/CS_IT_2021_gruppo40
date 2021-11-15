@@ -3,16 +3,18 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import controller.contracts.IController;
+import controller.contracts.ISellController;
 import exception.SellException;
+import factory.FactoryObservable;
 import factory.FactorySell;
 import factory.WindowsSell;
-import model.ISellModel;
 import model.SellModel;
-import observer.Observable;
+import model.contracts.ISellModel;
 import observer.ObserverRadio;
 import observer.ObserverSellDetail;
 import observer.ObserverUser;
-import view.ISellView;
+import view.contracts.ISellView;
 
 public class SellController extends AbstractController implements ISellController, ObserverUser, ObserverRadio, ObserverSellDetail {
 	
@@ -22,7 +24,7 @@ public class SellController extends AbstractController implements ISellControlle
 	private List<IController> controllers;
 	private FactorySell factorySell;
 	
-	public SellController(Observable observable, ISellView view) {
+	public SellController(FactoryObservable observable, ISellView view) {
 		super(observable);
 		
 		this.model = new SellModel();

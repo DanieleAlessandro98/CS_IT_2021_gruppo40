@@ -5,8 +5,9 @@ import javax.swing.JTextField;
 import java.awt.Color;
 import javax.swing.border.TitledBorder;
 
-import controller.IUserController;
-import model.IUserModel;
+import controller.contracts.IUserController;
+import model.contracts.IUserModel;
+import view.contracts.IUserView;
 
 import javax.swing.UIManager;
 

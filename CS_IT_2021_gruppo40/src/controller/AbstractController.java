@@ -1,12 +1,13 @@
 package controller;
 
-import observer.Observable;
+import controller.contracts.IController;
+import factory.FactoryObservable;
 
 public abstract class AbstractController implements IController {
 
-	protected Observable observable;
+	protected FactoryObservable observable;
 	
-	public AbstractController(Observable observable) {
+	public AbstractController(FactoryObservable observable) {
 		this.observable = observable;
 	}
 	

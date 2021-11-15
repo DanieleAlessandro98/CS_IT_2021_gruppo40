@@ -1,16 +1,17 @@
 package controller;
 
+import controller.contracts.ILoginController;
 import exception.LoginException;
-import model.ILoginModel;
-import observer.Observable;
-import view.ILoginView;
+import factory.FactoryObservable;
+import model.contracts.ILoginModel;
+import view.contracts.ILoginView;
 
 public class LoginController extends AbstractController implements ILoginController {
 
 	private ILoginModel model;
 	private ILoginView view;
 	
-	public LoginController(Observable observable, ILoginView view) {
+	public LoginController(FactoryObservable observable, ILoginView view) {
 		super(observable);
 		
 		this.model = (ILoginModel) observable.getObservableLogin();

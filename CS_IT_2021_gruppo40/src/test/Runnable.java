@@ -4,20 +4,20 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
-import controller.IController;
 import controller.MainController;
-import observer.Observable;
-import view.IMainView;
+import controller.contracts.IController;
+import factory.FactoryObservable;
 import view.MainView;
+import view.contracts.IMainView;
 
 public class Runnable {
 	
-	private Observable observable;
+	private FactoryObservable observable;
 	private IMainView mainView;
 	private IController mainController;
 	
 	public Runnable() {
-		observable = new Observable();
+		observable = new FactoryObservable();
 		mainView = new MainView();
 		mainController = new MainController(observable, mainView);
 	}

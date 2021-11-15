@@ -10,7 +10,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
-import controller.ILoginController;
+import controller.contracts.ILoginController;
+import view.contracts.ILoginView;
 
 public class LoginView extends AbstractView implements ILoginView {
 

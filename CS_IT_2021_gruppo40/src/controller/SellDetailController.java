@@ -2,16 +2,17 @@ package controller;
 
 import java.util.Date;
 
-import model.ISellDetailModel;
-import observer.Observable;
-import view.ISellDetailView;
+import controller.contracts.ISellDetailController;
+import factory.FactoryObservable;
+import model.contracts.ISellDetailModel;
+import view.contracts.ISellDetailView;
 
 public class SellDetailController extends AbstractController implements ISellDetailController {
 	
 	private ISellDetailModel model;
 	private ISellDetailView view;
 	
-	public SellDetailController(Observable observable, ISellDetailView view) {
+	public SellDetailController(FactoryObservable observable, ISellDetailView view) {
 		super(observable);
 		
 		this.model = (ISellDetailModel) observable.getObservableSellDetail();

@@ -7,7 +7,9 @@ import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.border.TitledBorder;
 
-import controller.ISellController;
+import controller.contracts.ISellController;
+import view.contracts.ISellView;
+import view.contracts.IView;
 
 public class SellView extends AbstractView implements ISellView {
 

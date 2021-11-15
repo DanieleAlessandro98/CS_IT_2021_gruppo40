@@ -3,12 +3,13 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import controller.contracts.IController;
 import factory.FactoryMain;
+import factory.FactoryObservable;
 import factory.WindowsMain;
-import observer.Observable;
 import observer.ObserverLogin;
 import utility.Window;
-import view.IMainView;
+import view.contracts.IMainView;
 
 public class MainController extends AbstractController implements ObserverLogin {
 	
@@ -17,7 +18,7 @@ public class MainController extends AbstractController implements ObserverLogin 
 	private List<IController> controllers;
 	private FactoryMain factoryMain;
 		
-	public MainController(Observable observable, IMainView view) {
+	public MainController(FactoryObservable observable, IMainView view) {
 		super(observable);
 		
 		this.view = view;

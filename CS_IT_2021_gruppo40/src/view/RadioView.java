@@ -4,8 +4,9 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
-import controller.IRadioController;
-import model.IRadioModel;
+import controller.contracts.IRadioController;
+import model.contracts.IRadioModel;
+import view.contracts.IRadioView;
 
 import java.awt.Color;
 
