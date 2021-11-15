@@ -19,12 +19,6 @@ public class SellModel extends AbstractModel implements ISellModel {
 	
 	public SellModel() {}
 	
-	public SellModel(IUserModel user, IRadioModel radio, ISellDetailModel sellDetail) {
-		this.user = user;
-		this.radio = radio;
-		this.sellDetail = sellDetail;
-	}
-	
 	@Override
 	public IUserModel getUser() {
 		return user;

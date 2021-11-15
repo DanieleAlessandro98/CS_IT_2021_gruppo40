@@ -23,14 +23,6 @@ public class LoginModel extends AbstractModel implements ILoginModel, Observable
 		
 		observers = new ArrayList<>();
 	}
-	
-	public LoginModel(String username, String password) {
-		this.username = username;
-		this.password = password;
-		setUserID(-1);
-		
-		observers = new ArrayList<>();
-	}
 
 	@Override
 	public void login(String username, String password) throws LoginException {

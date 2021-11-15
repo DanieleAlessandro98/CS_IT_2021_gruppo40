@@ -19,14 +19,6 @@ public class SellDetailModel extends AbstractModel implements ISellDetailModel, 
 	public SellDetailModel() {
 		observers = new ArrayList<>();
 	}
-	
-	public SellDetailModel(int numRadio, Date date, double price) {
-		this.numRadio = numRadio;
-		this.date = date;
-		this.price = price;
-		
-		observers = new ArrayList<>();
-	}
 
 	@Override
 	public int getNumRadio() {

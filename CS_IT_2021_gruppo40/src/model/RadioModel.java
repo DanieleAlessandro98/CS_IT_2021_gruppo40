@@ -33,7 +33,8 @@ public class RadioModel extends AbstractModel implements IRadioModel, Observable
 		this.optional = optional;
 		this.antenna = antenna;
 		
-		observers = new ArrayList<>();
+		// observers = new ArrayList<>();	// Commentato poichè questo costruttore viene utilizzato esclusivamente nel package database
+											// Il quale non ha bisogno di istanziare gli observers
 	}
 
 	@Override

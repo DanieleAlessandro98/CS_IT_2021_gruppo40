@@ -29,7 +29,8 @@ public class UserModel extends AbstractModel implements IUserModel, ObservableUs
 		this.dayCurrentSells = dayCurrentSells;
 		this.halfYearMaxSells = halfYearMaxSells;
 		
-		observers = new ArrayList<>();
+		// observers = new ArrayList<>();	// Commentato poichè questo costruttore viene utilizzato esclusivamente nel package database
+											// Il quale non ha bisogno di istanziare gli observers
 	}
 
 	@Override
