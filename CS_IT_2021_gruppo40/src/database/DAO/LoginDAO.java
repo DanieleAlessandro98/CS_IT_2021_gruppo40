@@ -44,6 +44,14 @@ public class LoginDAO {
 		} catch (SQLException e) {
 			throw new DatabaseException(DatabaseExceptionMessage.DATABASE_QUERY_FAILED);
 		}
+		finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
 		return result;
 	}

@@ -48,6 +48,14 @@ public class UserDAO {
 		} catch (SQLException e) {
 			throw new DatabaseException(DatabaseExceptionMessage.DATABASE_QUERY_FAILED);
 		}
+		finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
 		return result;
 	}
@@ -79,7 +87,6 @@ public class UserDAO {
 			statement.setDate(2, DateFormat.convertToSQLFormat(halfYearRange.get(0)));
 			statement.setDate(3, DateFormat.convertToSQLFormat(halfYearRange.get(1)));
 			
-			System.out.println(statement);
 			ResultSet resultSet = statement.executeQuery();
 			while (resultSet.next()) {
 				result = resultSet.getInt("half_year_sells");
@@ -89,6 +96,14 @@ public class UserDAO {
 			
 		} catch (SQLException e) {
 			throw new DatabaseException(DatabaseExceptionMessage.DATABASE_QUERY_FAILED);
+		}
+		finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		return result;
@@ -137,6 +152,14 @@ public class UserDAO {
 			
 		} catch (SQLException e) {
 			throw new DatabaseException(DatabaseExceptionMessage.DATABASE_QUERY_FAILED);
+		}
+		finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		return result;
