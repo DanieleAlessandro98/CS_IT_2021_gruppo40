@@ -3,6 +3,11 @@
 ### Descrizione
 RadioPort è un'applicazione progettata per consentire ai dipendenti di un'azienda di vendere radio portatili. Ogni vendita viene registrata insieme a informazioni dettagliate sulla radio venduta, la data di vendita, il prezzo di vendita e il dipendente responsabile della vendita.
 
+### Design pattern utilizzati
+- **Model View Controller (MVC)**
+- **Observer pattern**
+- **Data Access Object (DAO)**
+- **Factory method**
 
 ### Caratteristiche Principali
 - Registrazione delle vendite con dettagli completi sulle radio vendute.
